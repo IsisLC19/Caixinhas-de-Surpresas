@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&amp;family=Outfit:wght@500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "primary-fixed": "#ffdadb", "on-tertiary-container": "#ffd192", "primary-container": "#8e4a50", "on-primary-container": "#ffccce", "on-tertiary": "#ffffff", "on-secondary": "#ffffff", "primary-fixed-dim": "#ffb2b7", "on-background": "#201a1b", "surface-container-lowest": "#ffffff", "error-container": "#ffdad6", "background": "#fff8f7", "inverse-primary": "#ffb2b7", "tertiary-fixed-dim": "#ecbf7f", "on-secondary-fixed": "#370c12", "tertiary-container": "#7a5823", "outline": "#857373", "tertiary-fixed": "#ffddb2", "on-primary": "#ffffff", "on-primary-fixed": "#3a0811", "tertiary": "#5f410c", "surface-dim": "#e4d7d8", "secondary-container": "#ffb2b7", "surface-tint": "#8e4a50", "on-surface": "#201a1b", "secondary-fixed": "#ffdadb", "surface": "#fff8f7", "secondary-fixed-dim": "#ffb2b7", "on-secondary-fixed-variant": "#6d363b", "primary": "#713339", "surface-bright": "#fff8f7", "inverse-surface": "#362f30", "surface-container-low": "#fef0f1", "on-error": "#ffffff", "error": "#ba1a1a", "on-error-container": "#93000a", "surface-variant": "#eddfe0", "on-tertiary-fixed": "#291800", "secondary": "#894d52", "outline-variant": "#d8c1c2", "surface-container-high": "#f2e5e6", "on-secondary-container": "#7b4247", "on-surface-variant": "#534343", "surface-container-highest": "#eddfe0", "surface-container": "#f8ebec", "on-primary-fixed-variant": "#72333a", "on-tertiary-fixed-variant": "#60410c", "inverse-on-surface": "#fbeeee" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "spacing-sm": "0.75rem", "gutter": "1rem", "margin-screen": "1.25rem", "spacing-2xl": "2rem", "spacing-2xs": "0.25rem", "spacing-lg": "1.25rem", "spacing-3xl": "2.5rem", "spacing-md": "1rem", "spacing-3xs": "0.125rem", "spacing-xl": "1.5rem", "spacing-xs": "0.5rem" }, "fontFamily": { "body-sm": ["Open Sans"], "label-lg": ["Outfit"], "headline-md": ["Outfit"], "headline-lg": ["Outfit"], "title-md": ["Outfit"], "label-sm": ["Outfit"], "display-lg": ["Outfit"], "body-lg": ["Open Sans"], "label-md": ["Outfit"], "headline-sm": ["Outfit"], "body-md": ["Open Sans"] }, "fontSize": { "body-sm": ["12px", {"lineHeight": "17px", "fontWeight": "400"}], "label-lg": ["14px", {"lineHeight": "18px", "letterSpacing": "0.01em", "fontWeight": "600"}], "headline-md": ["20px", {"lineHeight": "26px", "fontWeight": "600"}], "headline-lg": ["26px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}], "title-md": ["16px", {"lineHeight": "22px", "fontWeight": "500"}], "label-sm": ["10px", {"lineHeight": "12px", "letterSpacing": "0.04em", "fontWeight": "700"}], "display-lg": ["34px", {"lineHeight": "42px", "letterSpacing": "-0.02em", "fontWeight": "600"}], "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}], "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "600"}], "headline-sm": ["18px", {"lineHeight": "24px", "fontWeight": "600"}], "body-md": ["14px", {"lineHeight": "21px", "fontWeight": "400"}] } } } }</script><style>@layer base{html,body{width:100vw;margin:0;padding:0;}body{overscroll-behavior:none;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style></head><body class="bg-surface font-body-md text-body-md text-on-surface flex flex-col min-h-screen"><header class="fixed top-0 w-full z-50 bg-surface/85 backdrop-blur-xl pt-safe shadow-[0_1px_8px_rgba(142,74,80,0.05)]"><div class="h-16 px-margin-screen flex items-center justify-between"><div class="flex items-center gap-spacing-sm"><div class="flex flex-col"><span class="font-headline-sm text-headline-sm text-primary leading-tight tracking-tight">Caixinhas de Surpresas</span><span class="font-label-sm text-label-sm uppercase tracking-wider text-secondary">Meu Pedido</span></div></div><div class="flex items-center gap-spacing-xs"><a class="relative w-11 h-11 flex items-center justify-center rounded-full text-on-surface-variant hover:text-primary transition-colors" data-path="meu-pedido" href="#"><span class="material-symbols-outlined text-[24px]">shopping_bag</span><span class="absolute top-2 right-2 w-2 h-2 rounded-full bg-primary ring-2 ring-surface"></span></a><img alt="Profile" class="w-8 h-8 rounded-full object-cover shadow-[0_1px_4px_rgba(142,74,80,0.15)]" src="https://lh3.googleusercontent.com/aida/AEtjO1Wv0DUIV-m3JWxYtdluoJj6ZQ831PgYvoCeVV31LQ_WV1wM5qGk8064wVkGLCrao7ipCXUirptAVC0uosC7EKNKgPW06_OjdZzW1jJQ_fIymMe0ldTerraXmarc3feD4jG8q8869yd9HuW_2znPjSmgEm4e5q63q_5irmgqj-Yd9UASBxCFX1x97tJ7GHjR2Tjq5Tn1q5egLDIcD74VXUDv-Df9T-w83rDh33VPZZ6d5AxskrIEuYbyyvwA25gaShNBw7GRW7kkYQ"/></div></div></header><main class="flex-1 flex flex-col relative w-full pt-16 pb-24 bg-surface"><div class="flex flex-col w-full px-margin-screen space-y-spacing-xl">
+<!-- Top Stepper / Breadcrumb Progress -->
+<div class="flex items-center justify-between py-spacing-xs">
+<div class="flex items-center space-x-spacing-xs">
+<span class="flex items-center justify-center w-6 h-6 rounded-full bg-primary text-on-primary font-label-sm text-label-sm">1</span>
+<span class="font-label-md text-label-md text-primary">Carrinho</span>
+</div>
+<div class="h-0.5 flex-1 mx-spacing-xs bg-surface-container-highest">
+<div class="h-full bg-primary w-2/3 rounded-full"></div>
+</div>
+<div class="flex items-center space-x-spacing-xs">
+<span class="flex items-center justify-center w-6 h-6 rounded-full bg-primary-container text-on-primary font-label-sm text-label-sm">2</span>
+<span class="font-label-md text-label-md text-primary">Checkout</span>
+</div>
+<div class="h-0.5 flex-1 mx-spacing-xs bg-surface-container-highest"></div>
+<div class="flex items-center space-x-spacing-xs">
+<span class="flex items-center justify-center w-6 h-6 rounded-full bg-surface-container-highest text-on-surface-variant font-label-sm text-label-sm">3</span>
+<span class="font-label-md text-label-md text-on-surface-variant">Confirmação</span>
+</div>
+</div>
+<!-- Main View Container (Switches between Checkout and Order Success) -->
+<div class="flex flex-col space-y-spacing-lg" id="checkout-view">
+<!-- 1. Lista de Itens do Carrinho -->
+<section class="flex flex-col bg-surface-container-lowest rounded-xl p-spacing-md shadow-sm space-y-spacing-md">
+<div class="flex items-center justify-between pb-spacing-xs">
+<div class="flex items-center space-x-spacing-xs">
+<span class="material-symbols-outlined text-primary text-[20px]">shopping_basket</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Itens Selecionados</h2>
+</div>
+<span class="font-label-sm text-label-sm text-secondary bg-surface-container-low px-spacing-xs py-spacing-3xs rounded-full" id="cart-item-count">3 itens</span>
+</div>
+<!-- Items List Container -->
+<div class="flex flex-col space-y-spacing-sm" id="cart-items-container">
+<!-- Injected via JavaScript -->
+</div>
+<!-- Financial Summary -->
+<div class="pt-spacing-xs space-y-spacing-2xs bg-surface-container-low p-spacing-sm rounded-lg">
+<div class="flex justify-between font-body-sm text-body-sm text-on-surface-variant">
+<span>Subtotal</span>
+<span id="summary-subtotal">R$ 0,00</span>
+</div>
+<div class="flex justify-between font-body-sm text-body-sm text-on-surface-variant">
+<span>Taxa de Entrega Segura</span>
+<span id="summary-delivery">R$ 15,00</span>
+</div>
+<div class="flex justify-between font-label-lg text-label-lg text-on-surface pt-spacing-2xs">
+<span>Total do Pedido</span>
+<span class="text-primary" id="summary-total">R$ 0,00</span>
+</div>
+</div>
+</section>
+<!-- 2. Identificação do Cliente -->
+<section class="flex flex-col bg-surface-container-lowest rounded-xl p-spacing-md shadow-sm space-y-spacing-md">
+<div class="flex items-center space-x-spacing-xs">
+<span class="material-symbols-outlined text-primary text-[20px]">person_pin</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Dados do Destinatário</h2>
+</div>
+<div class="space-y-spacing-sm">
+<div>
+<label class="block font-label-md text-label-md text-on-surface mb-spacing-3xs" for="cust-name">Nome Completo</label>
+<input class="w-full bg-surface-container-low px-spacing-sm py-spacing-xs rounded-lg font-body-md text-body-md text-on-surface outline-none focus:bg-surface transition-colors" id="cust-name" placeholder="Ex: Carolina Mattos Albuquerque" type="text"/>
+</div>
+<div>
+<label class="block font-label-md text-label-md text-on-surface mb-spacing-3xs" for="cust-phone">WhatsApp para Confirmação</label>
+<input class="w-full bg-surface-container-low px-spacing-sm py-spacing-xs rounded-lg font-body-md text-body-md text-on-surface outline-none focus:bg-surface transition-colors" id="cust-phone" maxlength="15" placeholder="(11) 98765-4321" type="tel"/>
+</div>
+<div>
+<label class="block font-label-md text-label-md text-on-surface mb-spacing-3xs" for="cust-address">Endereço de Entrega</label>
+<input class="w-full bg-surface-container-low px-spacing-sm py-spacing-xs rounded-lg font-body-md text-body-md text-on-surface outline-none focus:bg-surface transition-colors" id="cust-address" placeholder="Rua, Número, Complemento e Bairro" type="text"/>
+</div>
+</div>
+</section>
+<!-- 3. Validação Obrigatória de Geolocalização -->
+<section class="flex flex-col bg-surface-container-lowest rounded-xl p-spacing-md shadow-sm space-y-spacing-sm">
+<div class="flex items-start space-x-spacing-xs">
+<span class="material-symbols-outlined text-primary text-[20px] mt-0.5">near_me</span>
+<div class="flex-1">
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Localização de Precisão</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-spacing-3xs">
+            Para garantir o frescor das iguarias e o horário do momento surpresa, confirmamos a precisão da rota via GPS.
+          </p>
+</div>
+</div>
+<div class="flex flex-col p-spacing-sm rounded-lg bg-surface-container-low space-y-spacing-xs" id="geo-status-banner">
+<div class="flex items-center space-x-spacing-xs text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px]">satellite_alt</span>
+<span class="font-label-md text-label-md" id="geo-status-text">Localização pendente de validação</span>
+</div>
+<button class="w-full h-11 flex items-center justify-center space-x-spacing-xs rounded-lg bg-secondary text-on-secondary font-label-lg text-label-lg shadow-sm active:scale-[0.98] transition-transform" id="btn-validate-geo">
+<span class="material-symbols-outlined text-[20px]">explore</span>
+<span>Validar Localização de Entrega</span>
+</button>
+</div>
+<!-- Coordinates Result Pill (Hidden by default) -->
+<div class="hidden flex items-center justify-between p-spacing-xs bg-surface-container-high rounded-lg" id="geo-result-chip">
+<div class="flex items-center space-x-spacing-xs text-secondary font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-primary text-[18px]">check_circle</span>
+<span id="geo-coords-text">Coord: -23.5614, -46.6558</span>
+</div>
+<span class="font-label-sm text-label-sm text-primary bg-primary-fixed px-spacing-xs py-0.5 rounded-full">Confirmada</span>
+</div>
+</section>
+<!-- 4. Camada de Segurança e Prova de Vida -->
+<section class="flex flex-col bg-surface-container-lowest rounded-xl p-spacing-md shadow-sm space-y-spacing-sm">
+<div class="flex items-start space-x-spacing-xs">
+<span class="material-symbols-outlined text-primary text-[20px] mt-0.5">verified_user</span>
+<div class="flex-1">
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Validação Biométrica</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-spacing-3xs">
+            Certificação rápida de dispositivo para proteção de compras artesanais personalizadas.
+          </p>
+</div>
+</div>
+<div class="flex flex-col space-y-spacing-xs" id="security-box">
+<button class="w-full h-11 flex items-center justify-center space-x-spacing-xs rounded-lg bg-surface-container-high text-primary font-label-lg text-label-lg active:scale-[0.98] transition-all" id="btn-validate-device">
+<span class="material-symbols-outlined text-[20px]">fingerprint</span>
+<span>Validar Credenciais do Dispositivo</span>
+</button>
+<div class="hidden flex items-center justify-center space-x-spacing-xs py-spacing-xs rounded-lg bg-surface-container text-primary font-label-sm text-label-sm" id="security-status-chip">
+<span class="material-symbols-outlined text-[16px]">lock</span>
+<span>Identidade e Token de Dispositivo Autenticados</span>
+</div>
+</div>
+</section>
+<!-- 5. Simulação de Pagamento -->
+<section class="flex flex-col bg-surface-container-lowest rounded-xl p-spacing-md shadow-sm space-y-spacing-md">
+<div class="flex items-center space-x-spacing-xs">
+<span class="material-symbols-outlined text-primary text-[20px]">payments</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Forma de Pagamento</h2>
+</div>
+<div class="grid grid-cols-2 gap-spacing-sm">
+<button class="payment-method-selector flex flex-col items-center justify-center p-spacing-sm rounded-xl bg-primary text-on-primary transition-all" id="pay-opt-pix" type="button">
+<span class="material-symbols-outlined text-[26px] mb-spacing-3xs">qr_code_2</span>
+<span class="font-label-lg text-label-lg">PIX Instantâneo</span>
+<span class="font-label-sm text-label-sm opacity-90 mt-0.5">Aprovação em 5s</span>
+</button>
+<button class="payment-method-selector flex flex-col items-center justify-center p-spacing-sm rounded-xl bg-surface-container-low text-on-surface-variant transition-all" id="pay-opt-card" type="button">
+<span class="material-symbols-outlined text-[26px] mb-spacing-3xs">credit_card</span>
+<span class="font-label-lg text-label-lg">Cartão de Crédito</span>
+<span class="font-label-sm text-label-sm opacity-80 mt-0.5">Até 3x sem juros</span>
+</button>
+</div>
+<!-- Contextual Payment Info Container -->
+<div class="p-spacing-sm rounded-lg bg-surface-container-low space-y-spacing-3xs" id="payment-pix-details">
+<div class="flex items-center space-x-spacing-xs text-primary">
+<span class="material-symbols-outlined text-[18px]">bolt</span>
+<span class="font-label-md text-label-md">Garantia de Horário Prioritário</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+          O código PIX copia-e-cola com checkout dinâmico será gerado imediatamente após a confirmação.
+        </p>
+</div>
+<div class="hidden p-spacing-sm rounded-lg bg-surface-container-low space-y-spacing-xs" id="payment-card-details">
+<input class="w-full bg-surface-container-lowest px-spacing-sm py-spacing-xs rounded-lg font-body-md text-body-md outline-none" placeholder="Número do Cartão" type="text"/>
+<div class="grid grid-cols-2 gap-spacing-xs">
+<input class="bg-surface-container-lowest px-spacing-sm py-spacing-xs rounded-lg font-body-md text-body-md outline-none" placeholder="Validade (MM/AA)" type="text"/>
+<input class="bg-surface-container-lowest px-spacing-sm py-spacing-xs rounded-lg font-body-md text-body-md outline-none" maxlength="4" placeholder="CVV" type="password"/>
+</div>
+</div>
+</section>
+<!-- Error/Notice Bar -->
+<div class="hidden p-spacing-sm rounded-lg bg-error-container text-on-error-container font-label-md text-label-md flex items-center space-x-spacing-xs" id="validation-error-msg">
+<span class="material-symbols-outlined text-[20px]">info</span>
+<span id="validation-error-text">Por favor, complete todos os campos e validações necessárias.</span>
+</div>
+<!-- Final Execution Button -->
+<div class="pt-spacing-xs pb-spacing-md">
+<button class="w-full h-12 flex items-center justify-center space-x-spacing-xs rounded-xl bg-primary text-on-primary font-headline-sm text-headline-sm shadow-md active:scale-[0.98] transition-all" id="btn-submit-order">
+<span class="material-symbols-outlined text-[22px]">card_giftcard</span>
+<span>Confirmar e Realizar Pedido</span>
+</button>
+<p class="font-label-sm text-label-sm text-center text-on-surface-variant mt-spacing-xs">
+        Ambiente protegido com criptografia de ponta a ponta
+      </p>
+</div>
+</div>
+<!-- 6. Confirmation & Success View (Hidden by default) -->
+<div class="hidden flex flex-col space-y-spacing-lg" id="confirmation-view">
+<div class="bg-surface-container-lowest rounded-xl p-spacing-lg shadow-sm text-center flex flex-col items-center space-y-spacing-sm">
+<div class="w-16 h-16 rounded-full bg-primary-fixed flex items-center justify-center text-primary mb-spacing-xs">
+<span class="material-symbols-outlined text-[36px]">celebration</span>
+</div>
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-secondary">Celebração Registrada</span>
+<h2 class="font-headline-lg text-headline-lg text-primary">Pagamento Aprovado!</h2>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-xs">
+        Nossa equipe de ateliê já começou a confeccionar cada detalhe com amor e carinho.
+      </p>
+<div class="w-full py-spacing-xs px-spacing-sm bg-surface-container rounded-lg flex items-center justify-between mt-spacing-xs">
+<span class="font-label-md text-label-md text-on-surface-variant">Protocolo do Pedido</span>
+<span class="font-headline-sm text-headline-sm text-primary" id="order-protocol">#CP-84920</span>
+</div>
+</div>
+<!-- Summary Overview Card -->
+<div class="bg-surface-container-lowest rounded-xl p-spacing-md shadow-sm space-y-spacing-sm">
+<div class="flex items-center space-x-spacing-xs pb-spacing-xs">
+<span class="material-symbols-outlined text-primary text-[20px]">assignment</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Resumo da Encomenda</h3>
+</div>
+<div class="space-y-spacing-2xs font-body-sm text-body-sm text-on-surface-variant" id="confirmation-items-list">
+<!-- Rendered items recap -->
+</div>
+<div class="pt-spacing-xs flex justify-between font-label-lg text-label-lg text-on-surface">
+<span>Total Pago</span>
+<span class="text-primary font-headline-sm text-headline-sm" id="confirmation-total-amount">R$ 0,00</span>
+</div>
+<div class="p-spacing-xs bg-surface-container-low rounded-lg space-y-1">
+<div class="flex items-center space-x-spacing-3xs text-secondary font-label-md text-label-md">
+<span class="material-symbols-outlined text-[16px]">location_on</span>
+<span>Entrega Confirmada</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface pl-spacing-md" id="confirmation-delivery-address">-</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant pl-spacing-md" id="confirmation-geo-coords">-</p>
+</div>
+</div>
+<!-- WhatsApp Action Button -->
+<div class="flex flex-col space-y-spacing-xs pt-spacing-xs pb-spacing-md">
+<a class="w-full h-12 flex items-center justify-center space-x-spacing-xs rounded-xl bg-primary text-on-primary font-headline-sm text-headline-sm shadow-md active:scale-[0.98] transition-all text-center" href="#" id="btn-whatsapp-send" target="_blank">
+<span class="material-symbols-outlined text-[24px]">chat</span>
+<span>Enviar Pedido no WhatsApp</span>
+</a>
+<button class="w-full h-11 flex items-center justify-center rounded-xl bg-surface-container-high text-primary font-label-lg text-label-lg active:scale-[0.98] transition-all" id="btn-new-order">
+        Voltar para a Loja
+      </button>
+</div>
+</div>
+<!-- Device Verification Modal Dialog -->
+<div class="hidden fixed inset-0 z-50 flex items-center justify-center p-margin-screen bg-on-background/40 backdrop-blur-sm" id="device-modal">
+<div class="w-full max-w-sm bg-surface-container-lowest rounded-2xl p-spacing-lg shadow-xl flex flex-col items-center text-center space-y-spacing-sm">
+<div class="w-14 h-14 rounded-full bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[32px]">fingerprint</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Validando Credenciais</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant" id="device-modal-desc">
+        Solicitando assinatura criptográfica segura do dispositivo...
+      </p>
+<div class="w-6 h-6 border-2 border-primary border-t-transparent rounded-full animate-spin my-spacing-xs" id="device-modal-spinner"></div>
+<button class="hidden w-full h-10 rounded-lg bg-primary text-on-primary font-label-md text-label-md mt-spacing-xs" id="btn-close-device-modal">
+        Concluir
+      </button>
+</div>
+</div>
+</div>
+<script>
+(() => {
+  // State Store
+  const INITIAL_CART = [
+    {
+      id: 'box-romance',
+      title: 'Festa na Caixa - Doce Romance',
+      size: 'Tamanho M',
+      unitPrice: 189.90,
+      quantity: 1,
+      imageAlt: 'Artisanal gift box featuring small chocolate cake, sparkling wine mini bottles and handcrafted bonbons in dusty rose tissue paper'
+    },
+    {
+      id: 'addon-balloons',
+      title: 'Bal&otilde;es Personalizados em Dourado',
+      size: 'Kit 3 bal&otilde;es',
+      unitPrice: 38.00,
+      quantity: 1,
+      imageAlt: 'Trio of inflated golden metallic celebration balloons tied with silk ribbon'
+    }
+  ];
+
+  let cart = [];
+  try {
+    const saved = localStorage.getItem('caixinhas_cart_data');
+    cart = saved ? JSON.parse(saved) : INITIAL_CART;
+  } catch (e) {
+    cart = INITIAL_CART;
+  }
+
+  const state = {
+    geolocation: null,
+    biometricsVerified: false,
+    paymentMethod: 'pix',
+    deliveryFee: 15.00
+  };
+
+  // DOM Elements
+  const containerItems = document.getElementById('cart-items-container');
+  const countBadge = document.getElementById('cart-item-count');
+  const subtotalEl = document.getElementById('summary-subtotal');
+  const totalEl = document.getElementById('summary-total');
+  const inputName = document.getElementById('cust-name');
+  const inputPhone = document.getElementById('cust-phone');
+  const inputAddress = document.getElementById('cust-address');
+  const btnValidateGeo = document.getElementById('btn-validate-geo');
+  const geoText = document.getElementById('geo-status-text');
+  const geoChip = document.getElementById('geo-result-chip');
+  const geoCoordsText = document.getElementById('geo-coords-text');
+  const btnValidateDevice = document.getElementById('btn-validate-device');
+  const deviceStatusChip = document.getElementById('security-status-chip');
+  const deviceModal = document.getElementById('device-modal');
+  const deviceModalDesc = document.getElementById('device-modal-desc');
+  const deviceModalSpinner = document.getElementById('device-modal-spinner');
+  const btnCloseDeviceModal = document.getElementById('btn-close-device-modal');
+  const btnPix = document.getElementById('pay-opt-pix');
+  const btnCard = document.getElementById('pay-opt-card');
+  const pixDetails = document.getElementById('payment-pix-details');
+  const cardDetails = document.getElementById('payment-card-details');
+  const btnSubmit = document.getElementById('btn-submit-order');
+  const errorBox = document.getElementById('validation-error-msg');
+  const errorText = document.getElementById('validation-error-text');
+  const checkoutView = document.getElementById('checkout-view');
+  const confirmationView = document.getElementById('confirmation-view');
+  const confItemsList = document.getElementById('confirmation-items-list');
+  const confTotalAmount = document.getElementById('confirmation-total-amount');
+  const confDeliveryAddress = document.getElementById('confirmation-delivery-address');
+  const confGeoCoords = document.getElementById('confirmation-geo-coords');
+  const confProtocol = document.getElementById('order-protocol');
+  const btnWhatsapp = document.getElementById('btn-whatsapp-send');
+  const btnNewOrder = document.getElementById('btn-new-order');
+
+  function saveCart() {
+    try {
+      localStorage.setItem('caixinhas_cart_data', JSON.stringify(cart));
+    } catch (e) {}
+  }
+
+  function formatCurrency(num) {
+    return 'R$ ' + num.toFixed(2).replace('.', ',');
+  }
+
+  function renderCart() {
+    containerItems.innerHTML = '';
+
+    if (cart.length === 0) {
+      containerItems.innerHTML = `
+        <div class="py-spacing-md text-center text-on-surface-variant flex flex-col items-center">
+          <span class="material-symbols-outlined text-[32px] text-outline-variant mb-spacing-xs">remove_shopping_cart</span>
+          <span class="font-body-md text-body-md">Sua caixa de surpresas est&aacute; vazia.</span>
+        </div>
+      `;
+      countBadge.textContent = '0 itens';
+      subtotalEl.textContent = formatCurrency(0);
+      totalEl.textContent = formatCurrency(0);
+      return;
+    }
+
+    let subtotal = 0;
+    let totalItems = 0;
+
+    cart.forEach((item, index) => {
+      subtotal += item.unitPrice * item.quantity;
+      totalItems += item.quantity;
+
+      const itemCard = document.createElement('div');
+      itemCard.className = 'flex items-center space-x-spacing-sm p-spacing-xs bg-surface-container-low rounded-xl';
+      itemCard.innerHTML = `
+        <div class="w-16 h-16 rounded-lg bg-surface-container-highest overflow-hidden flex-shrink-0 flex items-center justify-center">
+          <img src="placeholder" data-alt="${item.imageAlt}" class="w-full h-full object-cover" />
+        </div>
+        <div class="flex-1 min-w-0">
+          <h4 class="font-title-md text-title-md text-on-surface truncate">${item.title}</h4>
+          <span class="font-label-sm text-label-sm text-secondary">${item.size}</span>
+          <div class="font-label-md text-label-md text-primary mt-0.5">${formatCurrency(item.unitPrice)}</div>
+        </div>
+        <div class="flex flex-col items-end space-y-spacing-xs">
+          <button data-remove="${index}" class="text-on-surface-variant hover:text-error transition-colors p-1" title="Remover">
+            <span class="material-symbols-outlined text-[18px]">delete</span>
+          </button>
+          <div class="flex items-center space-x-spacing-2xs bg-surface-container-lowest rounded-lg p-0.5 shadow-sm">
+            <button data-dec="${index}" class="w-6 h-6 flex items-center justify-center rounded text-primary font-label-md active:scale-95 transition-transform">-</button>
+            <span class="font-label-md text-label-md px-1 min-w-[16px] text-center">${item.quantity}</span>
+            <button data-inc="${index}" class="w-6 h-6 flex items-center justify-center rounded text-primary font-label-md active:scale-95 transition-transform">+</button>
+          </div>
+        </div>
+      `;
+      containerItems.appendChild(itemCard);
+    });
+
+    countBadge.textContent = `${totalItems} ${totalItems === 1 ? 'item' : 'itens'}`;
+    subtotalEl.textContent = formatCurrency(subtotal);
+    totalEl.textContent = formatCurrency(subtotal + state.deliveryFee);
+    saveCart();
+  }
+
+  // Cart Click Handlers
+  containerItems.addEventListener('click', (e) => {
+    const decBtn = e.target.closest('[data-dec]');
+    const incBtn = e.target.closest('[data-inc]');
+    const removeBtn = e.target.closest('[data-remove]');
+
+    if (decBtn) {
+      const idx = parseInt(decBtn.getAttribute('data-dec'), 10);
+      if (cart[idx].quantity > 1) {
+        cart[idx].quantity -= 1;
+      } else {
+        cart.splice(idx, 1);
+      }
+      renderCart();
+    } else if (incBtn) {
+      const idx = parseInt(incBtn.getAttribute('data-inc'), 10);
+      cart[idx].quantity += 1;
+      renderCart();
+    } else if (removeBtn) {
+      const idx = parseInt(removeBtn.getAttribute('data-remove'), 10);
+      cart.splice(idx, 1);
+      renderCart();
+    }
+  });
+
+  // Phone Mask: (11) 98765-4321
+  inputPhone.addEventListener('input', (e) => {
+    let val = e.target.value.replace(/\D/g, '');
+    if (val.length > 11) val = val.slice(0, 11);
+    if (val.length > 6) {
+      val = `(${val.slice(0, 2)}) ${val.slice(2, 7)}-${val.slice(7)}`;
+    } else if (val.length > 2) {
+      val = `(${val.slice(0, 2)}) ${val.slice(2)}`;
+    } else if (val.length > 0) {
+      val = `(${val}`;
+    }
+    e.target.value = val;
+  });
+
+  // 3. Geolocation Validation
+  btnValidateGeo.addEventListener('click', () => {
+    geoText.textContent = 'Acessando GPS do dispositivo...';
+    btnValidateGeo.disabled = true;
+
+    if (!('geolocation' in navigator)) {
+      applyGeoResult({ latitude: -23.5614, longitude: -46.6558, mock: true });
+      return;
+    }
+
+    navigator.geolocation.getCurrentPosition(
+      (pos) => {
+        applyGeoResult({
+          latitude: pos.coords.latitude,
+          longitude: pos.coords.longitude,
+          mock: false
+        });
+      },
+      () => {
+        // Fallback with graceful mock for demo/restricted environments
+        applyGeoResult({
+          latitude: -23.5614,
+          longitude: -46.6558,
+          fallback: true
+        });
+      },
+      { timeout: 8000, enableHighAccuracy: true }
+    );
+  });
+
+  function applyGeoResult(coords) {
+    state.geolocation = coords;
+    geoText.textContent = 'Localiza\u00e7\u00e3o verificada com sucesso!';
+    btnValidateGeo.classList.add('hidden');
+    geoChip.classList.remove('hidden');
+    geoCoordsText.textContent = `GPS: ${coords.latitude.toFixed(4)}, ${coords.longitude.toFixed(4)}`;
+    hideError();
+  }
+
+  // 4. Device Verification / Biometrics simulation
+  btnValidateDevice.addEventListener('click', () => {
+    deviceModal.classList.remove('hidden');
+    deviceModalDesc.textContent = 'Autenticando chave segura via biometria/PIN do dispositivo...';
+    deviceModalSpinner.classList.remove('hidden');
+    btnCloseDeviceModal.classList.add('hidden');
+
+    // Simulate WebAuthn or Credential validation
+    setTimeout(() => {
+      state.biometricsVerified = true;
+      deviceModalSpinner.classList.add('hidden');
+      deviceModalDesc.textContent = 'Identidade confirmada com seguran\u00e7a! Chave biom\u00e9trica validada para este pedido.';
+      btnCloseDeviceModal.classList.remove('hidden');
+    }, 1400);
+  });
+
+  btnCloseDeviceModal.addEventListener('click', () => {
+    deviceModal.classList.add('hidden');
+    btnValidateDevice.classList.add('hidden');
+    deviceStatusChip.classList.remove('hidden');
+    hideError();
+  });
+
+  // 5. Payment Toggle
+  btnPix.addEventListener('click', () => {
+    state.paymentMethod = 'pix';
+    btnPix.className = 'payment-method-selector flex flex-col items-center justify-center p-spacing-sm rounded-xl bg-primary text-on-primary transition-all';
+    btnCard.className = 'payment-method-selector flex flex-col items-center justify-center p-spacing-sm rounded-xl bg-surface-container-low text-on-surface-variant transition-all';
+    pixDetails.classList.remove('hidden');
+    cardDetails.classList.add('hidden');
+  });
+
+  btnCard.addEventListener('click', () => {
+    state.paymentMethod = 'card';
+    btnCard.className = 'payment-method-selector flex flex-col items-center justify-center p-spacing-sm rounded-xl bg-primary text-on-primary transition-all';
+    btnPix.className = 'payment-method-selector flex flex-col items-center justify-center p-spacing-sm rounded-xl bg-surface-container-low text-on-surface-variant transition-all';
+    cardDetails.classList.remove('hidden');
+    pixDetails.classList.add('hidden');
+  });
+
+  function showError(msg) {
+    errorText.textContent = msg;
+    errorBox.classList.remove('hidden');
+    errorBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
+
+  function hideError() {
+    errorBox.classList.add('hidden');
+  }
+
+  // 6. Submit & Order Generation
+  btnSubmit.addEventListener('click', () => {
+    if (cart.length === 0) {
+      showError('Adicione pelo menos uma caixinha ao carrinho para continuar.');
+      return;
+    }
+
+    const name = inputName.value.trim();
+    const phone = inputPhone.value.trim();
+    const address = inputAddress.value.trim();
+
+    if (!name || name.length < 3) {
+      showError('Por favor, informe seu nome completo para a etiqueta artesanal.');
+      return;
+    }
+    if (!phone || phone.length < 14) {
+      showError('Informe um n\u00famero de WhatsApp v\u00e1lido com DDD.');
+      return;
+    }
+    if (!address || address.length < 6) {
+      showError('Preencha o endere\u00e7o completo de entrega da surpresa.');
+      return;
+    }
+    if (!state.geolocation) {
+      showError('A valida\u00e7\u00e3o de geolocaliza\u00e7\u00e3o \u00e9 obrigat\u00f3ria para confirmar a rota.');
+      return;
+    }
+    if (!state.biometricsVerified) {
+      showError('Valide a autentica\u00e7\u00e3o de seguran\u00e7a do seu aparelho.');
+      return;
+    }
+
+    hideError();
+    completeOrder(name, phone, address);
+  });
+
+  function completeOrder(name, phone, address) {
+    // Generate Random Protocol
+    const randomCode = Math.floor(10000 + Math.random() * 90000);
+    const protocol = `#CP-${randomCode}`;
+    confProtocol.textContent = protocol;
+
+    // Calculate Totals
+    let subtotal = 0;
+    cart.forEach(it => { subtotal += it.unitPrice * it.quantity; });
+    const grandTotal = subtotal + state.deliveryFee;
+
+    // Fill Recap UI
+    confTotalAmount.textContent = formatCurrency(grandTotal);
+    confDeliveryAddress.textContent = address;
+    confGeoCoords.textContent = `Coordenadas: ${state.geolocation.latitude.toFixed(5)}, ${state.geolocation.longitude.toFixed(5)}`;
+
+    confItemsList.innerHTML = '';
+    let textItemsSummary = '';
+
+    cart.forEach(item => {
+      const line = document.createElement('div');
+      line.className = 'flex justify-between';
+      line.innerHTML = `<span>${item.quantity}x ${item.title}</span><span class="font-label-md">${formatCurrency(item.unitPrice * item.quantity)}</span>`;
+      confItemsList.appendChild(line);
+
+      textItemsSummary += `%0A \u2022 ${item.quantity}x ${item.title} (${item.size}) - ${formatCurrency(item.unitPrice * item.quantity)}`;
+    });
+
+    // Generate WhatsApp Link
+    const coordsStr = `${state.geolocation.latitude.toFixed(4)}, ${state.geolocation.longitude.toFixed(4)}`;
+    const paymentLabel = state.paymentMethod === 'pix' ? 'PIX Instant\u00e2neo' : 'Cart\u00e3o de Cr\u00e9dito';
+    
+    const waMessage = 
+      `*NOVO PEDIDO - CAIXINHAS DE SURPRESAS*%0A` +
+      `*Protocolo:* ${protocol}%0A%0A` +
+      `*Cliente:* ${encodeURIComponent(name)}%0A` +
+      `*WhatsApp:* ${encodeURIComponent(phone)}%0A` +
+      `*Endere\u00e7o:* ${encodeURIComponent(address)}%0A` +
+      `*Localiza\u00e7\u00e3o GPS:* ${coordsStr}%0A` +
+      `*Pagamento:* ${encodeURIComponent(paymentLabel)}%0A%0A` +
+      `*Itens do Pedido:*${textItemsSummary}%0A%0A` +
+      `*Taxa de Entrega:* ${formatCurrency(state.deliveryFee)}%0A` +
+      `*TOTAL:* ${formatCurrency(grandTotal)}%0A%0A` +
+      `_Status: Identidade validada e pagamento autorizado!_`;
+
+    btnWhatsapp.href = `https://wa.me/5511999999999?text=${waMessage}`;
+
+    // Switch View & Clear Cart
+    checkoutView.classList.add('hidden');
+    confirmationView.classList.remove('hidden');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+
+    cart = [];
+    saveCart();
+  }
+
+  btnNewOrder.addEventListener('click', () => {
+    cart = INITIAL_CART;
+    saveCart();
+    state.geolocation = null;
+    state.biometricsVerified = false;
+    geoChip.classList.add('hidden');
+    btnValidateGeo.classList.remove('hidden');
+    geoText.textContent = 'Localiza\u00e7\u00e3o pendente de valida\u00e7\u00e3o';
+    btnValidateDevice.classList.remove('hidden');
+    deviceStatusChip.classList.add('hidden');
+    renderCart();
+    confirmationView.classList.add('hidden');
+    checkoutView.classList.remove('hidden');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  // Initial load
+  renderCart();
+})();
+</script></main><nav class="fixed bottom-0 w-full z-50 pb-safe bg-surface/90 backdrop-blur-xl shadow-[0_-2px_12px_rgba(142,74,80,0.06)]" data-active-classes="text-primary font-semibold"><div class="flex justify-around items-center h-16 px-gutter"><a class="flex flex-col items-center justify-center gap-spacing-3xs min-w-[64px] h-12 text-on-surface-variant transition-colors" data-path="cardapio" href="#"><span class="material-symbols-outlined text-[24px]">grid_view</span><span class="font-label-sm text-label-sm">Cardápio</span></a><a class="flex flex-col items-center justify-center gap-spacing-3xs min-w-[64px] h-12 text-on-surface-variant transition-colors" data-path="personalizar" href="#"><span class="material-symbols-outlined text-[24px]">featured_seasonal_and_gifts</span><span class="font-label-sm text-label-sm">Personalizar</span></a><a aria-current="page" class="flex flex-col items-center justify-center gap-spacing-3xs min-w-[64px] h-12 transition-colors text-primary font-semibold" data-path="meu-pedido" href="#"><span class="material-symbols-outlined text-[24px]">shopping_bag</span><span class="font-label-sm text-label-sm">Meu Pedido</span></a></div></nav></body></html>

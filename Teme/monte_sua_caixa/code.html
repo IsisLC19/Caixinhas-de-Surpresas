@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&amp;family=Outfit:wght@500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "primary-fixed": "#ffdadb", "on-tertiary-container": "#ffd192", "primary-container": "#8e4a50", "on-primary-container": "#ffccce", "on-tertiary": "#ffffff", "on-secondary": "#ffffff", "primary-fixed-dim": "#ffb2b7", "on-background": "#201a1b", "surface-container-lowest": "#ffffff", "error-container": "#ffdad6", "background": "#fff8f7", "inverse-primary": "#ffb2b7", "tertiary-fixed-dim": "#ecbf7f", "on-secondary-fixed": "#370c12", "tertiary-container": "#7a5823", "outline": "#857373", "tertiary-fixed": "#ffddb2", "on-primary": "#ffffff", "on-primary-fixed": "#3a0811", "tertiary": "#5f410c", "surface-dim": "#e4d7d8", "secondary-container": "#ffb2b7", "surface-tint": "#8e4a50", "on-surface": "#201a1b", "secondary-fixed": "#ffdadb", "surface": "#fff8f7", "secondary-fixed-dim": "#ffb2b7", "on-secondary-fixed-variant": "#6d363b", "primary": "#713339", "surface-bright": "#fff8f7", "inverse-surface": "#362f30", "surface-container-low": "#fef0f1", "on-error": "#ffffff", "error": "#ba1a1a", "on-error-container": "#93000a", "surface-variant": "#eddfe0", "on-tertiary-fixed": "#291800", "secondary": "#894d52", "outline-variant": "#d8c1c2", "surface-container-high": "#f2e5e6", "on-secondary-container": "#7b4247", "on-surface-variant": "#534343", "surface-container-highest": "#eddfe0", "surface-container": "#f8ebec", "on-primary-fixed-variant": "#72333a", "on-tertiary-fixed-variant": "#60410c", "inverse-on-surface": "#fbeeee" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "spacing-sm": "0.75rem", "gutter": "1rem", "margin-screen": "1.25rem", "spacing-2xl": "2rem", "spacing-2xs": "0.25rem", "spacing-lg": "1.25rem", "spacing-3xl": "2.5rem", "spacing-md": "1rem", "spacing-3xs": "0.125rem", "spacing-xl": "1.5rem", "spacing-xs": "0.5rem" }, "fontFamily": { "body-sm": ["Open Sans"], "label-lg": ["Outfit"], "headline-md": ["Outfit"], "headline-lg": ["Outfit"], "title-md": ["Outfit"], "label-sm": ["Outfit"], "display-lg": ["Outfit"], "body-lg": ["Open Sans"], "label-md": ["Outfit"], "headline-sm": ["Outfit"], "body-md": ["Open Sans"] }, "fontSize": { "body-sm": ["12px", {"lineHeight": "17px", "fontWeight": "400"}], "label-lg": ["14px", {"lineHeight": "18px", "letterSpacing": "0.01em", "fontWeight": "600"}], "headline-md": ["20px", {"lineHeight": "26px", "fontWeight": "600"}], "headline-lg": ["26px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}], "title-md": ["16px", {"lineHeight": "22px", "fontWeight": "500"}], "label-sm": ["10px", {"lineHeight": "12px", "letterSpacing": "0.04em", "fontWeight": "700"}], "display-lg": ["34px", {"lineHeight": "42px", "letterSpacing": "-0.02em", "fontWeight": "600"}], "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}], "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "600"}], "headline-sm": ["18px", {"lineHeight": "24px", "fontWeight": "600"}], "body-md": ["14px", {"lineHeight": "21px", "fontWeight": "400"}] } } } }</script><style>@layer base{html,body{width:100vw;margin:0;padding:0;}body{overscroll-behavior:none;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style></head><body class="bg-surface font-body-md text-body-md text-on-surface flex flex-col min-h-screen"><header class="fixed top-0 w-full z-50 bg-surface/85 backdrop-blur-xl pt-safe shadow-[0_1px_8px_rgba(142,74,80,0.05)]"><div class="h-16 px-margin-screen flex items-center justify-between"><div class="flex items-center gap-spacing-sm"><div class="flex flex-col"><span class="font-headline-sm text-headline-sm text-primary leading-tight tracking-tight">Caixinhas de Surpresas</span><span class="font-label-sm text-label-sm uppercase tracking-wider text-secondary">Personalizar</span></div></div><div class="flex items-center gap-spacing-xs"><a class="relative w-11 h-11 flex items-center justify-center rounded-full text-on-surface-variant hover:text-primary transition-colors" data-path="meu-pedido" href="#"><span class="material-symbols-outlined text-[24px]">shopping_bag</span><span class="absolute top-2 right-2 w-2 h-2 rounded-full bg-primary ring-2 ring-surface"></span></a><img alt="Profile" class="w-8 h-8 rounded-full object-cover shadow-[0_1px_4px_rgba(142,74,80,0.15)]" src="https://lh3.googleusercontent.com/aida/AEtjO1Wv0DUIV-m3JWxYtdluoJj6ZQ831PgYvoCeVV31LQ_WV1wM5qGk8064wVkGLCrao7ipCXUirptAVC0uosC7EKNKgPW06_OjdZzW1jJQ_fIymMe0ldTerraXmarc3feD4jG8q8869yd9HuW_2znPjSmgEm4e5q63q_5irmgqj-Yd9UASBxCFX1x97tJ7GHjR2Tjq5Tn1q5egLDIcD74VXUDv-Df9T-w83rDh33VPZZ6d5AxskrIEuYbyyvwA25gaShNBw7GRW7kkYQ"/></div></div></header><main class="flex-1 flex flex-col relative w-full pt-16 pb-24 bg-surface"><div class="flex flex-col w-full">
+<!-- Interactive Customizer App Container -->
+<div class="flex flex-col w-full px-margin-screen pt-spacing-sm pb-spacing-3xl gap-spacing-lg" id="box-builder">
+<!-- Header Guidance / Hero Badge -->
+<div class="bg-surface-container-low rounded-xl p-spacing-md shadow-sm flex items-start gap-spacing-md">
+<div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary shrink-0">
+<span class="material-symbols-outlined text-[22px]">auto_awesome</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-headline-sm text-headline-sm text-on-surface">Monte a sua Caixa de Afeto</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Selecione o tamanho ideal e recheie cada detalhe com guloseimas artesanais feitas com carinho.</span>
+</div>
+</div>
+<!-- Step 1: Size Selector -->
+<div class="flex flex-col gap-spacing-xs">
+<div class="flex items-center justify-between">
+<span class="font-label-lg text-label-lg text-on-surface">1. Escolha o Porte da Caixa</span>
+<span class="font-label-sm text-label-sm text-secondary uppercase tracking-wider">Capacidade</span>
+</div>
+<div class="grid grid-cols-3 gap-spacing-xs" id="size-selector-group">
+<!-- Box P -->
+<button class="size-btn flex flex-col items-center justify-between p-spacing-sm rounded-xl transition-all duration-200 text-left bg-primary text-on-primary shadow-md" data-limit="10" data-price="89.90" data-size="P" type="button">
+<div class="flex items-center justify-between w-full">
+<span class="font-headline-md text-headline-md">P</span>
+<span class="material-symbols-outlined text-[18px] check-icon opacity-100">check_circle</span>
+</div>
+<div class="flex flex-col w-full mt-spacing-xs">
+<span class="font-label-sm text-label-sm opacity-90">Até 10 itens</span>
+<span class="font-title-md text-title-md mt-spacing-3xs font-semibold">R$ 89,90</span>
+</div>
+</button>
+<!-- Box M -->
+<button class="size-btn flex flex-col items-center justify-between p-spacing-sm rounded-xl transition-all duration-200 text-left bg-surface-container text-on-surface shadow-sm" data-limit="20" data-price="139.90" data-size="M" type="button">
+<div class="flex items-center justify-between w-full">
+<span class="font-headline-md text-headline-md">M</span>
+<span class="material-symbols-outlined text-[18px] check-icon opacity-0">check_circle</span>
+</div>
+<div class="flex flex-col w-full mt-spacing-xs">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Até 20 itens</span>
+<span class="font-title-md text-title-md text-primary mt-spacing-3xs font-semibold">R$ 139,90</span>
+</div>
+</button>
+<!-- Box G -->
+<button class="size-btn flex flex-col items-center justify-between p-spacing-sm rounded-xl transition-all duration-200 text-left bg-surface-container text-on-surface shadow-sm" data-limit="35" data-price="199.90" data-size="G" type="button">
+<div class="flex items-center justify-between w-full">
+<span class="font-headline-md text-headline-md">G</span>
+<span class="material-symbols-outlined text-[18px] check-icon opacity-0">check_circle</span>
+</div>
+<div class="flex flex-col w-full mt-spacing-xs">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Até 35 itens</span>
+<span class="font-title-md text-title-md text-primary mt-spacing-3xs font-semibold">R$ 199,90</span>
+</div>
+</button>
+</div>
+</div>
+<!-- Step 2: Live Progress Ring / Counter Card -->
+<div class="bg-surface-container-highest/60 rounded-xl p-spacing-md shadow-sm flex flex-col gap-spacing-xs">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-spacing-xs">
+<span class="material-symbols-outlined text-primary text-[20px]">inventory_2</span>
+<span class="font-label-lg text-label-lg text-on-surface">Capacidade Preenchida</span>
+</div>
+<span class="font-title-md text-title-md text-primary font-semibold" id="counter-summary">0 de 10 itens</span>
+</div>
+<!-- Linear visual meter -->
+<div class="w-full bg-surface-variant rounded-full h-2.5 overflow-hidden">
+<div class="bg-primary h-full transition-all duration-300 rounded-full" id="progress-bar" style="width: 0%;"></div>
+</div>
+<div class="flex items-center justify-between text-on-surface-variant">
+<span class="font-body-sm text-body-sm" id="counter-hint">Faltam 10 guloseimas para completar</span>
+<span class="font-label-sm text-label-sm text-secondary" id="counter-percentage">0%</span>
+</div>
+</div>
+<!-- Category Tabs Filter -->
+<div class="flex flex-col gap-spacing-sm">
+<div class="flex items-center justify-between">
+<span class="font-label-lg text-label-lg text-on-surface">2. Escolha as Delícias</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Toque para filtrar</span>
+</div>
+<div class="flex gap-spacing-xs overflow-x-auto pb-spacing-2xs -mx-margin-screen px-margin-screen scrollbar-none">
+<button class="cat-pill shrink-0 px-spacing-md py-spacing-xs rounded-full bg-primary text-on-primary font-label-md text-label-md shadow-sm transition-all" data-category="all" type="button">
+          Todos os Itens
+        </button>
+<button class="cat-pill shrink-0 px-spacing-md py-spacing-xs rounded-full bg-surface-container text-on-surface font-label-md text-label-md transition-all" data-category="doces" type="button">
+          Doces Gourmet
+        </button>
+<button class="cat-pill shrink-0 px-spacing-md py-spacing-xs rounded-full bg-surface-container text-on-surface font-label-md text-label-md transition-all" data-category="salgados" type="button">
+          Salgados Finos
+        </button>
+<button class="cat-pill shrink-0 px-spacing-md py-spacing-xs rounded-full bg-surface-container text-on-surface font-label-md text-label-md transition-all" data-category="especiais" type="button">
+          Especiais &amp; Bebidas
+        </button>
+</div>
+</div>
+<!-- Items Interactive List -->
+<div class="flex flex-col gap-spacing-sm" id="items-catalog">
+<!-- ITEM: Brigadeiro Belga -->
+<div class="item-card flex items-center justify-between p-spacing-sm rounded-xl bg-surface-container-lowest shadow-sm gap-spacing-sm" data-category="doces" data-id="brigadeiro-belga" data-name="Brigadeiro Belga Tradicional">
+<img class="w-16 h-16 rounded-lg object-cover shrink-0" data-alt="A delicate artisanal Belgian chocolate brigadeiro sweet coated with glistening cocoa nibs on fine blush porcelain, warm soft studio lighting, muted rose background, macro food photography." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAPOYyVWAur2WtCfLLD_XKly_S8LaRNSY1UW3tnWDjWVgPc8EKdnnSMNoMifzm7qW0Rvh3FWocSbF8yTSvFkBD1oQGjSD8VrJ4G2Q-Ov-dtk42A7LuB3fM1NCeWS8T-nuye6MyJ1pmQ_Rz2Kzgq7d_GmAS_nvH3EmANMgqWSsVK0MReNHSN-_oaG6AB4mzUmhca3gsutbKHVT3bSiDQO1qPnu3AcZJJgfU_Af6xMnxp90FSBQYlgBvH"/>
+<div class="flex flex-col flex-1 min-w-0">
+<span class="font-label-sm text-label-sm text-secondary uppercase tracking-wider">Doce Gourmet</span>
+<span class="font-title-md text-title-md text-on-surface truncate">Brigadeiro Belga</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant line-clamp-1">Chocolate nobre 54% e confeito Callebaut</span>
+</div>
+<div class="flex items-center gap-spacing-xs bg-surface-container-low rounded-full px-spacing-xs py-spacing-3xs shrink-0">
+<button class="btn-minus w-7 h-7 rounded-full bg-surface-container text-on-surface flex items-center justify-center transition-colors disabled:opacity-40" disabled="" type="button">
+<span class="material-symbols-outlined text-[16px]">remove</span>
+</button>
+<span class="item-qty font-title-md text-title-md text-on-surface w-5 text-center font-semibold">0</span>
+<button class="btn-plus w-7 h-7 rounded-full bg-primary text-on-primary flex items-center justify-center transition-colors" type="button">
+<span class="material-symbols-outlined text-[16px]">add</span>
+</button>
+</div>
+</div>
+<!-- ITEM: Beijinho de Coco Fresco -->
+<div class="item-card flex items-center justify-between p-spacing-sm rounded-xl bg-surface-container-lowest shadow-sm gap-spacing-sm" data-category="doces" data-id="beijinho-coco" data-name="Beijinho de Coco Fresco">
+<img class="w-16 h-16 rounded-lg object-cover shrink-0" data-alt="An artisanal Brazilian coconut beijinho confection garnished with a single aromatic clove on a luxury blush-toned ceramic saucer, delicate festive atmosphere, soft natural light." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDx2iQ8Bq6ndvqjr44i9naVKK8XdOWMcys4YQu6cASTJ94xOTVDRL_lVV46--UkoA6dXKyORvZ_9wuX9KDdeBz-d5C2E1CQvAInfffy6E4tzUQvqLebtVE2Im_gM8XmlsFW2uYA04EoAZnJmYbH_bhFh_e3ttMY4OoTQDaH3RWZ2n_i11KTbWXXGuvTX_asPruMwif6K4J0sG5tA0SpPgmgftLLexCbHxDNm5lBlUl0aj2OgATRakX0"/>
+<div class="flex flex-col flex-1 min-w-0">
+<span class="font-label-sm text-label-sm text-secondary uppercase tracking-wider">Doce Gourmet</span>
+<span class="font-title-md text-title-md text-on-surface truncate">Beijinho de Coco Fresco</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant line-clamp-1">Coco ralado fresco e leite condensado suave</span>
+</div>
+<div class="flex items-center gap-spacing-xs bg-surface-container-low rounded-full px-spacing-xs py-spacing-3xs shrink-0">
+<button class="btn-minus w-7 h-7 rounded-full bg-surface-container text-on-surface flex items-center justify-center transition-colors disabled:opacity-40" disabled="" type="button">
+<span class="material-symbols-outlined text-[16px]">remove</span>
+</button>
+<span class="item-qty font-title-md text-title-md text-on-surface w-5 text-center font-semibold">0</span>
+<button class="btn-plus w-7 h-7 rounded-full bg-primary text-on-primary flex items-center justify-center transition-colors" type="button">
+<span class="material-symbols-outlined text-[16px]">add</span>
+</button>
+</div>
+</div>
+<!-- ITEM: Ninho com Nutella -->
+<div class="item-card flex items-center justify-between p-spacing-sm rounded-xl bg-surface-container-lowest shadow-sm gap-spacing-sm" data-category="doces" data-id="ninho-nutella" data-name="Ninho com Nutella">
+<img class="w-16 h-16 rounded-lg object-cover shrink-0" data-alt="Gourmet powdered milk brigadeiro sweet topped with a rich droplet swirl of pure hazelnut cream, set against a soft rosy cream background, boutique confectionery elegance." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB_CkEAnmA3G7_HsyTC7Kg8OE47mBdDASJiH9WnNy4ZhPgtKRtILrK6Biflw5ftnkTy5HGVKIfJnSiRn4pr6qhT9L6eXXmyUDKpu68GFb0Xst9efBWQmRn06m4kHMzEbNuUp3zBFExCIGutdoI-sGog_rq38o8zzJswfPueRMGxpIwOrKSak1SJTDaPtaOjtiSzGqRDkyLGQmfw6Zz-m6wEZ8MbReROHDYciysIh4-SOU7MnZgfZ1zO"/>
+<div class="flex flex-col flex-1 min-w-0">
+<span class="font-label-sm text-label-sm text-secondary uppercase tracking-wider">Doce Gourmet</span>
+<span class="font-title-md text-title-md text-on-surface truncate">Ninho com Nutella</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant line-clamp-1">Massa aveludada de leite Ninho e avelã pura</span>
+</div>
+<div class="flex items-center gap-spacing-xs bg-surface-container-low rounded-full px-spacing-xs py-spacing-3xs shrink-0">
+<button class="btn-minus w-7 h-7 rounded-full bg-surface-container text-on-surface flex items-center justify-center transition-colors disabled:opacity-40" disabled="" type="button">
+<span class="material-symbols-outlined text-[16px]">remove</span>
+</button>
+<span class="item-qty font-title-md text-title-md text-on-surface w-5 text-center font-semibold">0</span>
+<button class="btn-plus w-7 h-7 rounded-full bg-primary text-on-primary flex items-center justify-center transition-colors" type="button">
+<span class="material-symbols-outlined text-[16px]">add</span>
+</button>
+</div>
+</div>
+<!-- ITEM: Palha Italiana -->
+<div class="item-card flex items-center justify-between p-spacing-sm rounded-xl bg-surface-container-lowest shadow-sm gap-spacing-sm" data-category="doces" data-id="palha-italiana" data-name="Palha Italiana Artesanal">
+<img class="w-16 h-16 rounded-lg object-cover shrink-0" data-alt="Boutique square cut Italian straw chocolate fudge candy rolled in fine crystal sugar dusting, warm ambient light, placed on elegant pastel rose linen napkin." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBxu6DyzfdREQKrJ_WVa57XvteOvfYwBOkAAfkes0tUU2f8Ih5blZz50uN2VIWTwDiuIgu7GBDgE7Ove_8jO4TvPk8SCLzp8IHyM9HBasntkPVYWbts1ZDosvlFlyC2bVWvXAdP4l_PU5wBK0M4MJDiMIinNnV9GYqQNtyAqEIHf4X2sWpj2dcf25BnbUZW6asyL_G9mtuGKBFx66fBomxCiSTs2jBDZ6snGBqOxrn_R8UzA22buRia"/>
+<div class="flex flex-col flex-1 min-w-0">
+<span class="font-label-sm text-label-sm text-secondary uppercase tracking-wider">Doce Gourmet</span>
+<span class="font-title-md text-title-md text-on-surface truncate">Palha Italiana Artesanal</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant line-clamp-1">Biscoito crocante imerso em brigadeiro denso</span>
+</div>
+<div class="flex items-center gap-spacing-xs bg-surface-container-low rounded-full px-spacing-xs py-spacing-3xs shrink-0">
+<button class="btn-minus w-7 h-7 rounded-full bg-surface-container text-on-surface flex items-center justify-center transition-colors disabled:opacity-40" disabled="" type="button">
+<span class="material-symbols-outlined text-[16px]">remove</span>
+</button>
+<span class="item-qty font-title-md text-title-md text-on-surface w-5 text-center font-semibold">0</span>
+<button class="btn-plus w-7 h-7 rounded-full bg-primary text-on-primary flex items-center justify-center transition-colors" type="button">
+<span class="material-symbols-outlined text-[16px]">add</span>
+</button>
+</div>
+</div>
+<!-- ITEM: Coxinha com Catupiry -->
+<div class="item-card flex items-center justify-between p-spacing-sm rounded-xl bg-surface-container-lowest shadow-sm gap-spacing-sm" data-category="salgados" data-id="coxinha-catupiry" data-name="Coxinha Dourada com Catupiry">
+<img class="w-16 h-16 rounded-lg object-cover shrink-0" data-alt="Mini golden-crusted Brazilian teardrop chicken coxinhas with creamy cheese filling, displayed on a minimalist matte white serving dish, appetizing warm editorial tone." src="https://lh3.googleusercontent.com/aida-public/AB6AXuATTTlrh4NgFfU8OxVbfpVkmejKSnHK695bEIKZUcqVnSs5mr5p0YrFkKKnmY2Ko1HCz0Nwyyef-BIcsEBXOVP3DD8PjJ-F4m0W4hsJbt5ayl58EKxutJ71hCNVoW-SjsiCeGSepkyYWviMaQNWvAzl6JqEs0gMl-sGt1CIOFoGkQyNm1s61DHwUq4ok4B0Kr3z167Oo0P3ahL2hIWzu7zUmzG8poWP8QoNccRgKqmeWwRLdLvwuX0Q"/>
+<div class="flex flex-col flex-1 min-w-0">
+<span class="font-label-sm text-label-sm text-secondary uppercase tracking-wider">Salgado Fino</span>
+<span class="font-title-md text-title-md text-on-surface truncate">Coxinha com Catupiry</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant line-clamp-1">Casquinha crocante e frango desfiado macio</span>
+</div>
+<div class="flex items-center gap-spacing-xs bg-surface-container-low rounded-full px-spacing-xs py-spacing-3xs shrink-0">
+<button class="btn-minus w-7 h-7 rounded-full bg-surface-container text-on-surface flex items-center justify-center transition-colors disabled:opacity-40" disabled="" type="button">
+<span class="material-symbols-outlined text-[16px]">remove</span>
+</button>
+<span class="item-qty font-title-md text-title-md text-on-surface w-5 text-center font-semibold">0</span>
+<button class="btn-plus w-7 h-7 rounded-full bg-primary text-on-primary flex items-center justify-center transition-colors" type="button">
+<span class="material-symbols-outlined text-[16px]">add</span>
+</button>
+</div>
+</div>
+<!-- ITEM: Empadinha Palmito & Alho Poró -->
+<div class="item-card flex items-center justify-between p-spacing-sm rounded-xl bg-surface-container-lowest shadow-sm gap-spacing-sm" data-category="salgados" data-id="empadinha-palmito" data-name="Empadinha de Palmito Cremoso">
+<img class="w-16 h-16 rounded-lg object-cover shrink-0" data-alt="Delicate baked butter pastry tartlet with golden glazed surface and fresh herbs garnish on soft aesthetic ceramic plate, warm afternoon sunlight." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBWhBRHLKOmNAP6kdOUtyQ5rSeHlhE-mNw0EHHShTjeuvHbbqKvMB7fyR0o1YmEajtd9tUVbNn00_HUKaPle4f6RsZj4lnBkQXqYzWrExa-dpqK-nMGcMK9qv2xBE1OvMO0hDhqM_pz3HKZsWpZQujVMaUs5WA37J4Z0zUl07pn1LLg2N1U8dgiI4dRx6_m003Kt0buTAV4A7q1k6W0cvm-OKyd3hm-gcVwS9blnL5dN84Ah4RwtJFW"/>
+<div class="flex flex-col flex-1 min-w-0">
+<span class="font-label-sm text-label-sm text-secondary uppercase tracking-wider">Salgado Fino</span>
+<span class="font-title-md text-title-md text-on-surface truncate">Empadinha de Palmito</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant line-clamp-1">Massa podre amanteigada que derrete na boca</span>
+</div>
+<div class="flex items-center gap-spacing-xs bg-surface-container-low rounded-full px-spacing-xs py-spacing-3xs shrink-0">
+<button class="btn-minus w-7 h-7 rounded-full bg-surface-container text-on-surface flex items-center justify-center transition-colors disabled:opacity-40" disabled="" type="button">
+<span class="material-symbols-outlined text-[16px]">remove</span>
+</button>
+<span class="item-qty font-title-md text-title-md text-on-surface w-5 text-center font-semibold">0</span>
+<button class="btn-plus w-7 h-7 rounded-full bg-primary text-on-primary flex items-center justify-center transition-colors" type="button">
+<span class="material-symbols-outlined text-[16px]">add</span>
+</button>
+</div>
+</div>
+<!-- ITEM: Quiche de Alho Poró -->
+<div class="item-card flex items-center justify-between p-spacing-sm rounded-xl bg-surface-container-lowest shadow-sm gap-spacing-sm" data-category="salgados" data-id="quiche-alho-poro" data-name="Mini Quiche de Alho Poró">
+<img class="w-16 h-16 rounded-lg object-cover shrink-0" data-alt="Miniature French quiche with caramelized leek and parmesan cheese custard filling, golden baked edges, clean airy composition with dusty pink elements." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB1ZE1LplyAh-pFOmD_FbhnxCaGJYnPeNV1qrjya016flsN9LM7ZlSTTfxovDQ7AW5-ndWNDIW5y2QRTMXuWO4ihx5p5zLrn9PABVWE5w4W5jOs5gqZN7ij3yKvbBCp0eBo44RuAjWIgHzhEtiBedOaGrwrrEMLVqxk9F13S-6PZZCO2hYMz-z14pyTfPeCk9x7mnGjpA8rXhI2zoiMWuDI30VxoF5wWFY-WEfDemPEpBv0e3bnFK9D"/>
+<div class="flex flex-col flex-1 min-w-0">
+<span class="font-label-sm text-label-sm text-secondary uppercase tracking-wider">Salgado Fino</span>
+<span class="font-title-md text-title-md text-on-surface truncate">Quiche de Alho Poró</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant line-clamp-1">Creme suave com queijo gratinado</span>
+</div>
+<div class="flex items-center gap-spacing-xs bg-surface-container-low rounded-full px-spacing-xs py-spacing-3xs shrink-0">
+<button class="btn-minus w-7 h-7 rounded-full bg-surface-container text-on-surface flex items-center justify-center transition-colors disabled:opacity-40" disabled="" type="button">
+<span class="material-symbols-outlined text-[16px]">remove</span>
+</button>
+<span class="item-qty font-title-md text-title-md text-on-surface w-5 text-center font-semibold">0</span>
+<button class="btn-plus w-7 h-7 rounded-full bg-primary text-on-primary flex items-center justify-center transition-colors" type="button">
+<span class="material-symbols-outlined text-[16px]">add</span>
+</button>
+</div>
+</div>
+<!-- ITEM: Mini Bolo Personalizado -->
+<div class="item-card flex items-center justify-between p-spacing-sm rounded-xl bg-surface-container-lowest shadow-sm gap-spacing-sm" data-category="especiais" data-id="mini-bolo" data-name="Mini Bento Cake Festivo">
+<img class="w-16 h-16 rounded-lg object-cover shrink-0" data-alt="A small charming minimalist bento cake with pastel rose buttercream frosting, tiny hand-piped message, surrounded by refined luxury party decor." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAPZYTmXq_UpcoUp3UnCoUOfFDihlG13S10V3riomImgZ1DMxk6NmLsF4oaS_F93VdkQqg0eErDfyAOMMNZw-u34ik1G2RWwdJYDvX0oYUvukxVtTe9Ijil0PQjzQJ5_5_6b9nr9vnXjVIVGXyZ89BR_weu7Ex0Zuv6EI_HMLUFIywegjQaibZfZ-CxYQTj6_S46RYxCulGNnvGXuPfG8JaqLi6eK7kbWn81AZ2DS9LOXVsAZLiLSAo"/>
+<div class="flex flex-col flex-1 min-w-0">
+<span class="font-label-sm text-label-sm text-secondary uppercase tracking-wider">Especial</span>
+<span class="font-title-md text-title-md text-on-surface truncate">Mini Bolo Bento Cake</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant line-clamp-1">Massa fofinha com recheio de brigadeiro branco</span>
+</div>
+<div class="flex items-center gap-spacing-xs bg-surface-container-low rounded-full px-spacing-xs py-spacing-3xs shrink-0">
+<button class="btn-minus w-7 h-7 rounded-full bg-surface-container text-on-surface flex items-center justify-center transition-colors disabled:opacity-40" disabled="" type="button">
+<span class="material-symbols-outlined text-[16px]">remove</span>
+</button>
+<span class="item-qty font-title-md text-title-md text-on-surface w-5 text-center font-semibold">0</span>
+<button class="btn-plus w-7 h-7 rounded-full bg-primary text-on-primary flex items-center justify-center transition-colors" type="button">
+<span class="material-symbols-outlined text-[16px]">add</span>
+</button>
+</div>
+</div>
+<!-- ITEM: Suco Artesanal de Uva Integral -->
+<div class="item-card flex items-center justify-between p-spacing-sm rounded-xl bg-surface-container-lowest shadow-sm gap-spacing-sm" data-category="especiais" data-id="suco-artesanal" data-name="Suco Artesanal de Uva 300ml">
+<img class="w-16 h-16 rounded-lg object-cover shrink-0" data-alt="Glass bottle of pure artisanal cold pressed grape juice tied with a neat soft rose silk ribbon, sunlit rustic warm backdrop." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDS32-HuaIu-SVntekbjAa9zTPti0nMrZksahbspZr6kqhaJ-Oj-C6mnPKvY89M7bJkHUuOOF3eBDhPVehdcKEHQBc6wejWVYtdlyn38zkZYzA24sV6wDZwzSMxfKVhXqftTS6vBdKSYuGi3po6gUkmgH7XsXDL9HQw27MTBzGE-bsOdy33bWdy3dV-Cef9y2ZtHSc_YcUFroQE7-7-vj-mpo4LaJ1JLg3kZuQrrTGu7dnhPDI_xAzX"/>
+<div class="flex flex-col flex-1 min-w-0">
+<span class="font-label-sm text-label-sm text-secondary uppercase tracking-wider">Bebida Artesanal</span>
+<span class="font-title-md text-title-md text-on-surface truncate">Suco Artesanal 300ml</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant line-clamp-1">100% fruta pura sem adição de açúcar</span>
+</div>
+<div class="flex items-center gap-spacing-xs bg-surface-container-low rounded-full px-spacing-xs py-spacing-3xs shrink-0">
+<button class="btn-minus w-7 h-7 rounded-full bg-surface-container text-on-surface flex items-center justify-center transition-colors disabled:opacity-40" disabled="" type="button">
+<span class="material-symbols-outlined text-[16px]">remove</span>
+</button>
+<span class="item-qty font-title-md text-title-md text-on-surface w-5 text-center font-semibold">0</span>
+<button class="btn-plus w-7 h-7 rounded-full bg-primary text-on-primary flex items-center justify-center transition-colors" type="button">
+<span class="material-symbols-outlined text-[16px]">add</span>
+</button>
+</div>
+</div>
+<!-- ITEM: Balão Metalizado Coração -->
+<div class="item-card flex items-center justify-between p-spacing-sm rounded-xl bg-surface-container-lowest shadow-sm gap-spacing-sm" data-category="especiais" data-id="balao-metalizado" data-name="Balão Metalizado Mini Coração">
+<img class="w-16 h-16 rounded-lg object-cover shrink-0" data-alt="A small metallic rose-gold heart balloon attached to a dainty satin ribbon, floating gently above a gift presentation box, editorial boutique lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBWkFKDT1qSs6JSwa90u2IhgnKQZr76_wajmpZAoqudFGIGB35EKIxcRBE9_ISeoLyBDuADWyNkddZhlB53jPr7PNWLuERD3X_GEzRDgTkctchs4ORN6eFOXMdNfxpGQorCtJ1urrwlCUA5_x9Ot4fTqw-octCs1p-0LV9o1HQP0tlBtv2mL3yPY4kHRDfaESZ6rbxsWTJXeqAI8_cMZEwSleeQS_yjpM_Hy4q7ZvkSFtThqSWwCewF"/>
+<div class="flex flex-col flex-1 min-w-0">
+<span class="font-label-sm text-label-sm text-secondary uppercase tracking-wider">Item Afetivo</span>
+<span class="font-title-md text-title-md text-on-surface truncate">Balão Metalizado Mini</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant line-clamp-1">Coração rosé gold com haste e laço de cetim</span>
+</div>
+<div class="flex items-center gap-spacing-xs bg-surface-container-low rounded-full px-spacing-xs py-spacing-3xs shrink-0">
+<button class="btn-minus w-7 h-7 rounded-full bg-surface-container text-on-surface flex items-center justify-center transition-colors disabled:opacity-40" disabled="" type="button">
+<span class="material-symbols-outlined text-[16px]">remove</span>
+</button>
+<span class="item-qty font-title-md text-title-md text-on-surface w-5 text-center font-semibold">0</span>
+<button class="btn-plus w-7 h-7 rounded-full bg-primary text-on-primary flex items-center justify-center transition-colors" type="button">
+<span class="material-symbols-outlined text-[16px]">add</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Feedback Toast Modal Notification -->
+<div class="fixed bottom-24 left-1/2 -translate-x-1/2 z-40 bg-inverse-surface text-inverse-on-surface px-spacing-md py-spacing-xs rounded-full shadow-xl opacity-0 pointer-events-none transition-all duration-300 flex items-center gap-spacing-xs max-w-[90vw]" id="toast-limit">
+<span class="material-symbols-outlined text-[18px] text-tertiary-fixed">info</span>
+<span class="font-label-md text-label-md">Limite atingido! Altere o tamanho da caixa para adicionar mais.</span>
+</div>
+<!-- Sticky Bottom Summary & CTA Bar -->
+<div class="sticky bottom-0 -mx-margin-screen px-margin-screen pt-spacing-sm pb-spacing-md bg-surface/95 backdrop-blur-md shadow-[0_-8px_20px_rgba(142,74,80,0.08)] z-30 flex flex-col gap-spacing-xs">
+<div class="flex items-center justify-between">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Total da sua Caixa</span>
+<div class="flex items-baseline gap-spacing-3xs">
+<span class="font-headline-lg text-headline-lg text-primary" id="display-price">R$ 89,90</span>
+<span class="font-label-sm text-label-sm text-secondary" id="display-size-tag">(Tamanho P)</span>
+</div>
+</div>
+<div class="text-right">
+<span class="font-label-md text-label-md text-secondary" id="status-selection">0 de 10 selecionados</span>
+</div>
+</div>
+<button class="w-full h-12 bg-primary text-on-primary rounded-xl font-label-lg text-label-lg flex items-center justify-center gap-spacing-xs shadow-md active:scale-95 transition-all" id="add-to-cart-btn" type="button">
+<span class="material-symbols-outlined text-[20px]">shopping_basket</span>
+<span>Adicionar Caixa Personalizada ao Carrinho</span>
+</button>
+</div>
+</div>
+<script>
+    (function() {
+      // Configuration state
+      let selectedSize = 'P';
+      let maxItems = 10;
+      let currentPrice = 89.90;
+      const itemsSelected = {};
+
+      const sizeButtons = document.querySelectorAll('.size-btn');
+      const progressBar = document.getElementById('progress-bar');
+      const counterSummary = document.getElementById('counter-summary');
+      const counterHint = document.getElementById('counter-hint');
+      const counterPercentage = document.getElementById('counter-percentage');
+      const displayPrice = document.getElementById('display-price');
+      const displaySizeTag = document.getElementById('display-size-tag');
+      const statusSelection = document.getElementById('status-selection');
+      const addToCartBtn = document.getElementById('add-to-cart-btn');
+      const toastLimit = document.getElementById('toast-limit');
+      const catPills = document.querySelectorAll('.cat-pill');
+      const itemCards = document.querySelectorAll('.item-card');
+
+      function getTotalSelectedCount() {
+        return Object.values(itemsSelected).reduce((sum, q) => sum + q, 0);
+      }
+
+      function showToast(message) {
+        if (!toastLimit) return;
+        toastLimit.querySelector('span:last-child').textContent = message;
+        toastLimit.classList.remove('opacity-0', 'pointer-events-none');
+        toastLimit.classList.add('opacity-100');
+        setTimeout(() => {
+          toastLimit.classList.remove('opacity-100');
+          toastLimit.classList.add('opacity-0', 'pointer-events-none');
+        }, 2200);
+      }
+
+      function updateUI() {
+        const total = getTotalSelectedCount();
+        const percent = Math.min(100, Math.round((total / maxItems) * 100));
+        
+        // Progress Meter
+        progressBar.style.width = percent + '%';
+        counterSummary.textContent = `${total} de ${maxItems} itens`;
+        counterPercentage.textContent = `${percent}%`;
+
+        const remaining = maxItems - total;
+        if (remaining > 0) {
+          counterHint.textContent = `Faltam ${remaining} ${remaining === 1 ? 'guloseima' : 'guloseimas'} para completar`;
+          counterHint.classList.remove('text-primary');
+          counterHint.classList.add('text-on-surface-variant');
+        } else {
+          counterHint.textContent = 'Caixinha completa com amor e carinho!';
+          counterHint.classList.remove('text-on-surface-variant');
+          counterHint.classList.add('text-primary');
+        }
+
+        displayPrice.textContent = `R$ ${currentPrice.toFixed(2).replace('.', ',')}`;
+        displaySizeTag.textContent = `(Tamanho ${selectedSize})`;
+        statusSelection.textContent = `${total} de ${maxItems} selecionados`;
+
+        // Update item button states
+        itemCards.forEach(card => {
+          const id = card.getAttribute('data-id');
+          const qty = itemsSelected[id] || 0;
+          const qtyEl = card.querySelector('.item-qty');
+          const minusBtn = card.querySelector('.btn-minus');
+          const plusBtn = card.querySelector('.btn-plus');
+
+          qtyEl.textContent = qty;
+          minusBtn.disabled = (qty === 0);
+
+          if (total >= maxItems) {
+            plusBtn.disabled = true;
+            plusBtn.classList.add('opacity-40');
+          } else {
+            plusBtn.disabled = false;
+            plusBtn.classList.remove('opacity-40');
+          }
+        });
+      }
+
+      // Handle Size Selection
+      sizeButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+          const newSize = btn.getAttribute('data-size');
+          const newLimit = parseInt(btn.getAttribute('data-limit'), 10);
+          const newPrice = parseFloat(btn.getAttribute('data-price'));
+
+          const currentTotal = getTotalSelectedCount();
+          if (currentTotal > newLimit) {
+            showToast(`Você já escolheu ${currentTotal} itens. Remova alguns para mudar para a Caixa ${newSize}.`);
+            return;
+          }
+
+          selectedSize = newSize;
+          maxItems = newLimit;
+          currentPrice = newPrice;
+
+          // Update size pill styles
+          sizeButtons.forEach(b => {
+            const isSelected = (b === btn);
+            const check = b.querySelector('.check-icon');
+            if (isSelected) {
+              b.className = 'size-btn flex flex-col items-center justify-between p-spacing-sm rounded-xl transition-all duration-200 text-left bg-primary text-on-primary shadow-md';
+              check.classList.remove('opacity-0');
+              check.classList.add('opacity-100');
+            } else {
+              b.className = 'size-btn flex flex-col items-center justify-between p-spacing-sm rounded-xl transition-all duration-200 text-left bg-surface-container text-on-surface shadow-sm';
+              check.classList.remove('opacity-100');
+              check.classList.add('opacity-0');
+            }
+          });
+
+          updateUI();
+        });
+      });
+
+      // Handle Item Quantity Buttons
+      itemCards.forEach(card => {
+        const id = card.getAttribute('data-id');
+        const minusBtn = card.querySelector('.btn-minus');
+        const plusBtn = card.querySelector('.btn-plus');
+
+        plusBtn.addEventListener('click', () => {
+          const currentTotal = getTotalSelectedCount();
+          if (currentTotal >= maxItems) {
+            showToast(`Sua Caixa ${selectedSize} atingiu a capacidade máxima (${maxItems} itens)!`);
+            return;
+          }
+          itemsSelected[id] = (itemsSelected[id] || 0) + 1;
+          updateUI();
+        });
+
+        minusBtn.addEventListener('click', () => {
+          if (itemsSelected[id] && itemsSelected[id] > 0) {
+            itemsSelected[id] -= 1;
+            if (itemsSelected[id] === 0) {
+              delete itemsSelected[id];
+            }
+            updateUI();
+          }
+        });
+      });
+
+      // Handle Category Tabs Filter
+      catPills.forEach(pill => {
+        pill.addEventListener('click', () => {
+          const cat = pill.getAttribute('data-category');
+
+          catPills.forEach(p => {
+            const isThis = (p === pill);
+            if (isThis) {
+              p.className = 'cat-pill shrink-0 px-spacing-md py-spacing-xs rounded-full bg-primary text-on-primary font-label-md text-label-md shadow-sm transition-all';
+            } else {
+              p.className = 'cat-pill shrink-0 px-spacing-md py-spacing-xs rounded-full bg-surface-container text-on-surface font-label-md text-label-md transition-all';
+            }
+          });
+
+          itemCards.forEach(card => {
+            const itemCat = card.getAttribute('data-category');
+            if (cat === 'all' || itemCat === cat) {
+              card.classList.remove('hidden');
+            } else {
+              card.classList.add('hidden');
+            }
+          });
+        });
+      });
+
+      // Save and Redirect to Cart
+      addToCartBtn.addEventListener('click', () => {
+        const total = getTotalSelectedCount();
+        if (total === 0) {
+          showToast('Escolha pelo menos 1 item para montar sua caixa personalizada.');
+          return;
+        }
+
+        const boxDetails = {
+          id: 'custom-box-' + Date.now(),
+          title: `Caixa Personalizada (${selectedSize})`,
+          size: selectedSize,
+          capacity: maxItems,
+          price: currentPrice,
+          itemsCount: total,
+          items: itemsSelected,
+          createdAt: new Date().toISOString()
+        };
+
+        try {
+          const cart = JSON.parse(localStorage.getItem('cart_items') || '[]');
+          cart.push(boxDetails);
+          localStorage.setItem('cart_items', JSON.stringify(cart));
+        } catch (e) {
+          console.warn('Storage unavailable', e);
+        }
+
+        // Visual feedback
+        addToCartBtn.innerHTML = `
+          <span class="material-symbols-outlined text-[20px]">check_circle</span>
+          <span>Caixa Adicionada com Sucesso!</span>
+        `;
+        addToCartBtn.classList.add('bg-tertiary', 'text-white');
+
+        setTimeout(() => {
+          // Navigate to order screen via shell data-path routing convention
+          const target = document.querySelector('a[data-path="meu-pedido"]');
+          if (target) {
+            target.click();
+          } else {
+            window.location.hash = '#meu-pedido';
+          }
+        }, 800);
+      });
+
+      // Initial state render
+      updateUI();
+    })();
+  </script>
+</div></main><nav class="fixed bottom-0 w-full z-50 pb-safe bg-surface/90 backdrop-blur-xl shadow-[0_-2px_12px_rgba(142,74,80,0.06)]" data-active-classes="text-primary font-semibold"><div class="flex justify-around items-center h-16 px-gutter"><a class="flex flex-col items-center justify-center gap-spacing-3xs min-w-[64px] h-12 text-on-surface-variant transition-colors" data-path="cardapio" href="#"><span class="material-symbols-outlined text-[24px]">grid_view</span><span class="font-label-sm text-label-sm">Cardápio</span></a><a aria-current="page" class="flex flex-col items-center justify-center gap-spacing-3xs min-w-[64px] h-12 transition-colors text-primary font-semibold" data-path="personalizar" href="#"><span class="material-symbols-outlined text-[24px]">featured_seasonal_and_gifts</span><span class="font-label-sm text-label-sm">Personalizar</span></a><a class="flex flex-col items-center justify-center gap-spacing-3xs min-w-[64px] h-12 text-on-surface-variant transition-colors" data-path="meu-pedido" href="#"><span class="material-symbols-outlined text-[24px]">shopping_bag</span><span class="font-label-sm text-label-sm">Meu Pedido</span></a></div></nav></body></html>
