@@ -1,0 +1,148 @@
+{
+  "produtos": [
+    {
+      "id": "box-p-01",
+      "nome": "Caixa Doçura P",
+      "categoria": "pronta",
+      "tamanho": "P",
+      "capacidade": "Serve 1 a 2 pessoas",
+      "quantidadeItens": 10,
+      "preco": 69.90,
+      "imagem": "https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?auto=format&fit=crop&w=600&q=80",
+      "descricao": "Perfeita para comemorações intimistas com seleção especial dos nossos doces artesanais mais amados.",
+      "itens": ["4 Brigadeiros Belga", "2 Beijinhos Nobres", "2 Palhas Italianas", "2 Mini Bento Cakes"]
+    },
+    {
+      "id": "box-p-02",
+      "nome": "Caixinha Romântica P",
+      "categoria": "pronta",
+      "tamanho": "P",
+      "capacidade": "Para o casal",
+      "quantidadeItens": 10,
+      "preco": 89.00,
+      "imagem": "https://images.unsplash.com/photo-1527515637462-cff94eecc1ac?auto=format&fit=crop&w=600&q=80",
+      "descricao": "Desenvolvida para um brinde apaixonado com bombons trufados finos e morangos frescos.",
+      "itens": ["4 Bombons Coração", "2 Taças Espumante", "2 Morangos com Chocolate", "2 Tartaletes de Morango"]
+    },
+    {
+      "id": "box-m-01",
+      "nome": "Festa Pocket Aniversário M",
+      "categoria": "pronta",
+      "tamanho": "M",
+      "capacidade": "Serve 3 a 5 pessoas",
+      "quantidadeItens": 20,
+      "preco": 139.90,
+      "imagem": "https://images.unsplash.com/photo-1558961363-fa8fdf82db35?auto=format&fit=crop&w=600&q=80",
+      "descricao": "A comemoração completa em formato compacto: bolo fofinho confeitado, salgadinhos folhados e docinhos.",
+      "itens": ["1 Mini Bolo 500g", "8 Salgados Finos", "6 Brigadeiros Gourmet", "5 Empadinhas de Palmito"]
+    },
+    {
+      "id": "box-m-02",
+      "nome": "Doce Encontro M",
+      "categoria": "pronta",
+      "tamanho": "M",
+      "capacidade": "Serve até 4 pessoas",
+      "quantidadeItens": 20,
+      "preco": 155.00,
+      "imagem": "https://images.unsplash.com/photo-1535141192574-5d4897c13136?auto=format&fit=crop&w=600&q=80",
+      "descricao": "Combinação harmônica de macarons delicados, mini quiches amanteigadas e petit fours selecionados.",
+      "itens": ["6 Macarons Delicados", "6 Quiches Alho Poró", "4 Coxinhas Catupiry", "4 Brigadeiros Ninho"]
+    },
+    {
+      "id": "box-g-01",
+      "nome": "Mega Surpresa Celebration G",
+      "categoria": "pronta",
+      "tamanho": "G",
+      "capacidade": "Serve 6 a 8 pessoas",
+      "quantidadeItens": 35,
+      "preco": 249.00,
+      "imagem": "https://images.unsplash.com/photo-1513151233558-d860c5398176?auto=format&fit=crop&w=600&q=80",
+      "descricao": "Uma verdadeira festa que salta aos olhos! Caixa grande e estruturada com menu festivo completo.",
+      "itens": ["1 Bolo Decorado 1kg", "14 Salgados Especiais", "12 Brigadeiros Sortidos", "8 Quiches e Empadas"]
+    },
+    {
+      "id": "box-g-02",
+      "nome": "Ateliê Total Celebration G",
+      "categoria": "pronta",
+      "tamanho": "G",
+      "capacidade": "Celebração Completa",
+      "quantidadeItens": 35,
+      "preco": 279.00,
+      "imagem": "https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?auto=format&fit=crop&w=600&q=80",
+      "descricao": "Menu luxo 100% gourmet com canapés, doces nobres finos e bebidas artesanais inclusas.",
+      "itens": ["15 Doces Nobres", "12 Salgados Buffet", "6 Macarons Luxo", "2 Sucos Artesanais 300ml"]
+    }
+  ],
+  "itensPersonalizaveis": [
+    {
+      "id": "item-brigadeiro",
+      "nome": "Brigadeiro Belga Tradicional",
+      "categoria": "doces",
+      "descricao": "Chocolate nobre 54% e granulado Callebaut",
+      "imagem": "https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?auto=format&fit=crop&w=300&q=80"
+    },
+    {
+      "id": "item-beijinho",
+      "nome": "Beijinho de Coco Fresco",
+      "categoria": "doces",
+      "descricao": "Coco ralado fresco e leite condensado cremoso",
+      "imagem": "https://images.unsplash.com/photo-1527515637462-cff94eecc1ac?auto=format&fit=crop&w=300&q=80"
+    },
+    {
+      "id": "item-ninho-nutella",
+      "nome": "Ninho com Nutella",
+      "categoria": "doces",
+      "descricao": "Massa de Leite Ninho recheada com avelã pura",
+      "imagem": "https://images.unsplash.com/photo-1587314168485-3236d6710814?auto=format&fit=crop&w=300&q=80"
+    },
+    {
+      "id": "item-palha-italiana",
+      "nome": "Palha Italiana Artesanal",
+      "categoria": "doces",
+      "descricao": "Biscoito crocante imerso em brigadeiro cremoso",
+      "imagem": "https://images.unsplash.com/photo-1558961363-fa8fdf82db35?auto=format&fit=crop&w=300&q=80"
+    },
+    {
+      "id": "item-coxinha",
+      "nome": "Coxinha Dourada com Catupiry",
+      "categoria": "salgados",
+      "descricao": "Massa leve e recheio abundante de frango desfiado",
+      "imagem": "https://images.unsplash.com/photo-1565299585323-38d6b0865b47?auto=format&fit=crop&w=300&q=80"
+    },
+    {
+      "id": "item-empada",
+      "nome": "Empadinha de Palmito Cremoso",
+      "categoria": "salgados",
+      "descricao": "Massa podre amanteigada que derrete na boca",
+      "imagem": "https://images.unsplash.com/photo-1509722747041-616f39b57569?auto=format&fit=crop&w=300&q=80"
+    },
+    {
+      "id": "item-quiche",
+      "nome": "Mini Quiche de Alho Poró",
+      "categoria": "salgados",
+      "descricao": "Creme de queijo gratinado com alho poró fresco",
+      "imagem": "https://images.unsplash.com/photo-1535141192574-5d4897c13136?auto=format&fit=crop&w=300&q=80"
+    },
+    {
+      "id": "item-mini-bolo",
+      "nome": "Mini Bento Cake Festivo",
+      "categoria": "especiais",
+      "descricao": "Bolo individual decorado em tons pastéis",
+      "imagem": "https://images.unsplash.com/photo-1535141192574-5d4897c13136?auto=format&fit=crop&w=300&q=80"
+    },
+    {
+      "id": "item-suco",
+      "nome": "Suco Artesanal de Uva 300ml",
+      "categoria": "especiais",
+      "descricao": "100% fruta pura sem adição de açúcar",
+      "imagem": "https://images.unsplash.com/photo-1621263764928-df1444c5e859?auto=format&fit=crop&w=300&q=80"
+    },
+    {
+      "id": "item-balao",
+      "nome": "Balão Metalizado Mini Coração",
+      "categoria": "especiais",
+      "descricao": "Topper mimoso em tom rosé gold com laço",
+      "imagem": "https://images.unsplash.com/photo-1530103862676-de8c9debad1d?auto=format&fit=crop&w=300&q=80"
+    }
+  ]
+}

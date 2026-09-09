@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover"/>
+  <title>Caixinhas de Surpresas - Festas na Caixa</title>
+
+  <!-- Google Fonts: Outfit (Headings) and Open Sans (Body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Outfit:wght@500;600;700&display=swap" rel="stylesheet"/>
+
+  <!-- Material Symbols Outlined (No Emojis used) -->
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+
+  <!-- Tailwind CSS CDN for styling utility -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#713339",
+            "primary-container": "#8e4a50",
+            "on-primary": "#ffffff",
+            "on-primary-container": "#ffccce",
+            "primary-fixed": "#ffdadb",
+            "primary-fixed-dim": "#ffb2b7",
+            "on-primary-fixed": "#3a0811",
+            "secondary": "#894d52",
+            "secondary-container": "#ffb2b7",
+            "on-secondary": "#ffffff",
+            "on-secondary-container": "#7b4247",
+            "tertiary": "#5f410c",
+            "tertiary-container": "#7a5823",
+            "on-tertiary": "#ffffff",
+            "tertiary-fixed": "#ffddb2",
+            "tertiary-fixed-dim": "#ecbf7f",
+            "on-tertiary-fixed": "#291800",
+            "surface": "#fff8f7",
+            "on-surface": "#201a1b",
+            "on-surface-variant": "#534343",
+            "surface-dim": "#e4d7d8",
+            "surface-container-lowest": "#ffffff",
+            "surface-container-low": "#fef0f1",
+            "surface-container": "#f8ebec",
+            "surface-container-high": "#f2e5e6",
+            "surface-container-highest": "#eddfe0",
+            "error": "#ba1a1a",
+            "error-container": "#ffdad6",
+            "on-error": "#ffffff",
+            "on-error-container": "#93000a",
+            "outline": "#857373",
+            "outline-variant": "#d8c1c2"
+          },
+          fontFamily: {
+            "headline": ["Outfit", "sans-serif"],
+            "body": ["Open Sans", "sans-serif"]
+          },
+          spacing: {
+            "margin-screen": "1.25rem",
+            "gutter": "1rem"
+          }
+        }
+      }
+    }
+  </script>
+
+  <link rel="stylesheet" href="styles.css"/>
+</head>
+<body class="bg-surface text-on-surface font-body min-h-screen flex flex-col">
+
+  <!-- Fixed Top Header -->
+  <header class="fixed top-0 w-full z-50 bg-surface/85 backdrop-blur-xl pt-safe shadow-[0_1px_8px_rgba(142,74,80,0.05)]">
+    <div class="h-16 px-margin-screen flex items-center justify-between">
+      <div class="flex items-center gap-2">
+        <span class="material-symbols-outlined text-primary text-[28px]">redeem</span>
+        <div class="flex flex-col">
+          <span class="font-headline font-semibold text-lg text-primary leading-tight">Caixinhas de Surpresas</span>
+          <span class="font-headline text-[10px] uppercase font-bold tracking-wider text-secondary" id="header-page-title">Cardápio</span>
+        </div>
+      </div>
+      <div class="flex items-center gap-2">
+        <a href="#meu-pedido" class="relative w-11 h-11 flex items-center justify-center rounded-full text-on-surface-variant hover:text-primary transition-colors" data-tab="meu-pedido">
+          <span class="material-symbols-outlined text-[24px]">shopping_bag</span>
+          <span class="absolute top-2 right-2 w-2 h-2 rounded-full bg-primary ring-2 ring-surface hidden" id="header-cart-indicator"></span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main View Container -->
+  <main class="flex-1 flex flex-col w-full pt-16 pb-24 bg-surface" id="app-main">
+    <!-- Dynamic Views will be rendered here via app.js -->
+  </main>
+
+  <!-- Notification Toast -->
+  <div id="toast-notification" class="fixed top-20 left-1/2 -translate-x-1/2 z-50 transition-all duration-300 opacity-0 pointer-events-none transform -translate-y-2">
+    <div class="bg-primary text-on-primary px-4 py-2 rounded-full shadow-lg flex items-center gap-2 font-headline text-xs font-semibold">
+      <span class="material-symbols-outlined text-[18px]">check_circle</span>
+      <span id="toast-message">Notificação</span>
+    </div>
+  </div>
+
+  <!-- Bottom Navigation Bar -->
+  <nav class="fixed bottom-0 w-full z-50 pb-safe bg-surface/90 backdrop-blur-xl shadow-[0_-2px_12px_rgba(142,74,80,0.06)]">
+    <div class="flex justify-around items-center h-16 px-gutter">
+      <a href="#cardapio" data-tab="cardapio" class="nav-tab-btn flex flex-col items-center justify-center gap-1 min-w-[64px] h-12 text-primary font-semibold transition-colors">
+        <span class="material-symbols-outlined text-[24px]">grid_view</span>
+        <span class="font-headline text-[11px]">Cardápio</span>
+      </a>
+      <a href="#personalizar" data-tab="personalizar" class="nav-tab-btn flex flex-col items-center justify-center gap-1 min-w-[64px] h-12 text-on-surface-variant transition-colors">
+        <span class="material-symbols-outlined text-[24px]">featured_seasonal_and_gifts</span>
+        <span class="font-headline text-[11px]">Personalizar</span>
+      </a>
+      <a href="#meu-pedido" data-tab="meu-pedido" class="nav-tab-btn flex flex-col items-center justify-center gap-1 min-w-[64px] h-12 text-on-surface-variant transition-colors relative">
+        <span class="material-symbols-outlined text-[24px]">shopping_bag</span>
+        <span class="font-headline text-[11px]">Meu Pedido</span>
+        <span id="nav-cart-badge" class="hidden absolute top-1 right-3 w-4 h-4 bg-primary text-on-primary text-[9px] font-bold rounded-full flex items-center justify-center">0</span>
+      </a>
+    </div>
+  </nav>
+
+  <script src="app.js"></script>
+</body>
+</html>
