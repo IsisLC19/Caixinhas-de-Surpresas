@@ -6,7 +6,7 @@
   <title>Caixinhas de Surpresas - Festas na Caixa</title>
 
   <!-- PWA: conecta o app ao manifest.json -->
-  <link rel="manifest" href="./manifest_and_icons/manifest.json"/>
+  <link rel="manifest" href="./manifest.json"/>
   
   <!-- Cor da barra do navegador/status bar no celular -->
   <meta name="theme-color" content="#713339"/>
@@ -159,7 +159,7 @@
   <script>
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
-        navigator.serviceWorker.register('./manifest_and_icons/sw.js')
+        navigator.serviceWorker.register('./sw.js')
           .then(reg => console.log('Service Worker registrado:', reg.scope))
           .catch(err => console.error('Erro ao registrar SW:', err));
       });
