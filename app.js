@@ -66,6 +66,7 @@
     const totalItems = state.cart.reduce((sum, item) => sum + item.quantidade, 0);
     const navBadge = document.getElementById('nav-cart-badge');
     const headerIndicator = document.getElementById('header-cart-indicator');
+    const desktopBadge = document.getElementById('header-desktop-cart-badge');
 
     if (navBadge) {
       if (totalItems > 0) {
@@ -81,6 +82,15 @@
         headerIndicator.classList.remove('hidden');
       } else {
         headerIndicator.classList.add('hidden');
+      }
+    }
+
+    if (desktopBadge) {
+      if (totalItems > 0) {
+        desktopBadge.textContent = totalItems;
+        desktopBadge.classList.remove('hidden');
+      } else {
+        desktopBadge.classList.add('hidden');
       }
     }
   }
@@ -164,64 +174,65 @@
     });
 
     container.innerHTML = `
-      <div class="flex flex-col w-full fade-in">
+      <div class="max-w-6xl mx-auto w-full px-margin-screen sm:px-6 flex flex-col gap-4 fade-in">
         <!-- Banner Hero -->
-        <section class="px-margin-screen pt-4 pb-2">
-          <div class="bg-surface-container-low rounded-xl p-4 shadow-sm relative overflow-hidden">
-            <div class="relative z-10 flex flex-col gap-1">
+        <section class="pt-2">
+          <div class="bg-surface-container-low rounded-2xl p-5 sm:p-6 shadow-sm relative overflow-hidden">
+            <div class="relative z-10 flex flex-col gap-1.5">
               <div class="flex items-center gap-2">
-                <span class="material-symbols-outlined text-primary text-[20px]">celebration</span>
-                <span class="font-headline text-[11px] font-bold uppercase tracking-wider text-secondary">Cardápio Exclusivo</span>
+                <span class="material-symbols-outlined text-primary text-[22px]">celebration</span>
+                <span class="font-headline text-xs font-bold uppercase tracking-wider text-secondary">Cardápio Exclusivo</span>
               </div>
-              <p class="font-headline font-semibold text-lg text-primary">Momentos que encantam em cada detalhe</p>
+              <p class="font-headline font-semibold text-xl sm:text-2xl text-primary">Momentos que encantam em cada detalhe</p>
               <p class="font-body text-xs text-on-surface-variant">Selecione sua festa na caixa pronta para presentear ou personalize com seus doces e mimos favoritos.</p>
             </div>
-            <div class="absolute -right-6 -bottom-6 w-24 h-24 rounded-full bg-primary-fixed-dim/30 pointer-events-none"></div>
+            <div class="absolute -right-6 -bottom-6 w-32 h-32 rounded-full bg-primary-fixed-dim/30 pointer-events-none"></div>
           </div>
         </section>
 
-        <!-- Filtros de Tipo -->
-        <section class="px-margin-screen pt-2">
-          <div class="flex bg-surface-container-high p-1 rounded-xl gap-1" id="category-filter-group">
-            <button type="button" data-cat="all" class="cat-filter-btn flex-1 py-2 px-3 rounded-lg text-center font-headline text-xs font-semibold transition-all ${state.categoryFilter === 'all' ? 'bg-surface-container-lowest text-primary shadow-sm' : 'text-on-surface-variant hover:text-primary'}">
-              Todas as Caixas
-            </button>
-            <button type="button" data-cat="pronta" class="cat-filter-btn flex-1 py-2 px-3 rounded-lg text-center font-headline text-xs font-semibold transition-all ${state.categoryFilter === 'pronta' ? 'bg-surface-container-lowest text-primary shadow-sm' : 'text-on-surface-variant hover:text-primary'}">
-              Prontas
-            </button>
-          </div>
-        </section>
+        <!-- Filtros e Contadores -->
+        <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 pt-1 pb-1">
+          <div class="flex flex-wrap items-center gap-2">
+            <!-- Filtros de Tipo -->
+            <div class="flex bg-surface-container-high p-1 rounded-xl gap-1" id="category-filter-group">
+              <button type="button" data-cat="all" class="cat-filter-btn py-1.5 px-3 rounded-lg text-center font-headline text-xs font-semibold transition-all ${state.categoryFilter === 'all' ? 'bg-surface-container-lowest text-primary shadow-sm' : 'text-on-surface-variant hover:text-primary'}">
+                Todas
+              </button>
+              <button type="button" data-cat="pronta" class="cat-filter-btn py-1.5 px-3 rounded-lg text-center font-headline text-xs font-semibold transition-all ${state.categoryFilter === 'pronta' ? 'bg-surface-container-lowest text-primary shadow-sm' : 'text-on-surface-variant hover:text-primary'}">
+                Prontas
+              </button>
+            </div>
 
-        <!-- Filtros de Tamanho -->
-        <section class="px-margin-screen pt-3 pb-2">
-          <div class="flex items-center gap-2 overflow-x-auto pb-1 no-scrollbar" id="size-filter-group">
-            <button type="button" data-size="all" class="size-filter-btn shrink-0 px-4 py-1.5 rounded-full font-headline text-xs font-bold uppercase transition-colors ${state.sizeFilter === 'all' ? 'bg-primary text-on-primary' : 'bg-surface-container-high text-on-surface-variant hover:bg-surface-container-highest'}">
-              Todos os Tamanhos
-            </button>
-            <button type="button" data-size="P" class="size-filter-btn shrink-0 px-4 py-1.5 rounded-full font-headline text-xs font-bold uppercase transition-colors ${state.sizeFilter === 'P' ? 'bg-primary text-on-primary' : 'bg-surface-container-high text-on-surface-variant hover:bg-surface-container-highest'}">
-              Tamanho P <span class="opacity-70 font-normal ml-0.5">(10 itens)</span>
-            </button>
-            <button type="button" data-size="M" class="size-filter-btn shrink-0 px-4 py-1.5 rounded-full font-headline text-xs font-bold uppercase transition-colors ${state.sizeFilter === 'M' ? 'bg-primary text-on-primary' : 'bg-surface-container-high text-on-surface-variant hover:bg-surface-container-highest'}">
-              Tamanho M <span class="opacity-70 font-normal ml-0.5">(20 itens)</span>
-            </button>
-            <button type="button" data-size="G" class="size-filter-btn shrink-0 px-4 py-1.5 rounded-full font-headline text-xs font-bold uppercase transition-colors ${state.sizeFilter === 'G' ? 'bg-primary text-on-primary' : 'bg-surface-container-high text-on-surface-variant hover:bg-surface-container-highest'}">
-              Tamanho G <span class="opacity-70 font-normal ml-0.5">(35 itens)</span>
-            </button>
+            <!-- Filtros de Tamanho -->
+            <div class="flex items-center gap-1.5 overflow-x-auto no-scrollbar py-1" id="size-filter-group">
+              <button type="button" data-size="all" class="size-filter-btn shrink-0 px-3 py-1.5 rounded-full font-headline text-xs font-bold uppercase transition-colors ${state.sizeFilter === 'all' ? 'bg-primary text-on-primary' : 'bg-surface-container-high text-on-surface-variant hover:bg-surface-container-highest'}">
+                Todos
+              </button>
+              <button type="button" data-size="P" class="size-filter-btn shrink-0 px-3 py-1.5 rounded-full font-headline text-xs font-bold uppercase transition-colors ${state.sizeFilter === 'P' ? 'bg-primary text-on-primary' : 'bg-surface-container-high text-on-surface-variant hover:bg-surface-container-highest'}">
+                Tam P <span class="opacity-70 font-normal ml-0.5">(10)</span>
+              </button>
+              <button type="button" data-size="M" class="size-filter-btn shrink-0 px-3 py-1.5 rounded-full font-headline text-xs font-bold uppercase transition-colors ${state.sizeFilter === 'M' ? 'bg-primary text-on-primary' : 'bg-surface-container-high text-on-surface-variant hover:bg-surface-container-highest'}">
+                Tam M <span class="opacity-70 font-normal ml-0.5">(20)</span>
+              </button>
+              <button type="button" data-size="G" class="size-filter-btn shrink-0 px-3 py-1.5 rounded-full font-headline text-xs font-bold uppercase transition-colors ${state.sizeFilter === 'G' ? 'bg-primary text-on-primary' : 'bg-surface-container-high text-on-surface-variant hover:bg-surface-container-highest'}">
+                Tam G <span class="opacity-70 font-normal ml-0.5">(35)</span>
+              </button>
+            </div>
           </div>
-        </section>
 
-        <!-- Contador e Indicador -->
-        <div class="px-margin-screen py-2 flex items-center justify-between">
-          <span class="font-headline text-xs font-semibold uppercase tracking-wider text-secondary">Mostrando ${filteredProducts.length} ${filteredProducts.length === 1 ? 'caixa' : 'caixas'}</span>
-          <div class="flex items-center gap-1 text-on-surface-variant">
-            <span class="material-symbols-outlined text-[18px]">auto_awesome</span>
-            <span class="font-headline text-xs">Artesanal & Fresco</span>
+          <!-- Contador -->
+          <div class="flex items-center justify-between sm:justify-end gap-3 text-on-surface-variant">
+            <span class="font-headline text-xs font-semibold uppercase tracking-wider text-secondary">${filteredProducts.length} ${filteredProducts.length === 1 ? 'caixa disponível' : 'caixas disponíveis'}</span>
+            <div class="hidden sm:flex items-center gap-1 text-on-surface-variant">
+              <span class="material-symbols-outlined text-[18px]">auto_awesome</span>
+              <span class="font-headline text-xs">Artesanal & Fresco</span>
+            </div>
           </div>
         </div>
 
         <!-- Grid de Produtos -->
-        <section class="px-margin-screen pb-20">
-          <div class="flex flex-col gap-4" id="catalog-products-list">
+        <section class="pb-20 md:pb-10">
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5" id="catalog-products-list">
             ${filteredProducts.length === 0 ? `
               <div class="flex flex-col items-center justify-center text-center p-8 bg-surface-container-lowest rounded-xl shadow-sm mt-4">
                 <span class="material-symbols-outlined text-[36px] text-secondary mb-2">inventory_2</span>
@@ -301,10 +312,10 @@
         </section>
 
         <!-- Barra Flutuante do Carrinho -->
-        <div class="fixed bottom-20 left-margin-screen right-margin-screen z-40 transition-all duration-300 transform ${totalCartItems > 0 ? 'translate-y-0 opacity-100' : 'translate-y-24 opacity-0 pointer-events-none'}" id="floating-cart-bar">
-          <div class="bg-primary text-on-primary rounded-xl shadow-lg p-3 flex items-center justify-between">
+        <div class="fixed bottom-20 md:bottom-6 left-1/2 -translate-x-1/2 w-[calc(100%-2.5rem)] max-w-lg z-40 transition-all duration-300 transform ${totalCartItems > 0 ? 'translate-y-0 opacity-100' : 'translate-y-24 opacity-0 pointer-events-none'}" id="floating-cart-bar">
+          <div class="bg-primary text-on-primary rounded-2xl shadow-xl p-3 sm:p-4 flex items-center justify-between">
             <div class="flex items-center gap-3 pl-1">
-              <div class="relative w-10 h-10 rounded-lg bg-surface-container-lowest/15 flex items-center justify-center">
+              <div class="relative w-10 h-10 rounded-xl bg-surface-container-lowest/15 flex items-center justify-center">
                 <span class="material-symbols-outlined text-[22px]">redeem</span>
                 <span class="absolute -top-1.5 -right-1.5 w-5 h-5 rounded-full bg-tertiary-fixed text-on-tertiary-fixed font-headline text-[10px] flex items-center justify-center font-bold">${totalCartItems}</span>
               </div>
@@ -313,7 +324,7 @@
                 <span class="font-headline font-bold text-on-primary text-base">${formatBRL(totalCartPrice)}</span>
               </div>
             </div>
-            <a href="#meu-pedido" data-tab="meu-pedido" class="nav-tab-trigger flex items-center gap-1 bg-surface-container-lowest text-primary px-4 py-2 rounded-lg font-headline text-xs font-semibold hover:bg-primary-fixed transition-colors shadow-sm">
+            <a href="#meu-pedido" data-tab="meu-pedido" class="nav-tab-trigger flex items-center gap-1 bg-surface-container-lowest text-primary px-4 py-2.5 rounded-xl font-headline text-xs font-semibold hover:bg-primary-fixed transition-colors shadow-sm">
               <span>Ver Pedido</span>
               <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
             </a>
@@ -420,128 +431,153 @@
 
   function renderPersonalizarView(container) {
     container.innerHTML = `
-      <div class="flex flex-col w-full px-margin-screen pt-3 pb-24 gap-4 fade-in" id="box-builder-root">
+      <div class="max-w-6xl mx-auto w-full px-margin-screen sm:px-6 pt-3 pb-24 md:pb-12 flex flex-col gap-5 fade-in" id="box-builder-root">
         <!-- Header Hero -->
-        <div class="bg-surface-container-low rounded-xl p-4 shadow-sm flex items-start gap-3">
-          <div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary shrink-0">
-            <span class="material-symbols-outlined text-[22px]">auto_awesome</span>
+        <div class="bg-surface-container-low rounded-2xl p-5 shadow-sm flex items-start gap-4">
+          <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary shrink-0">
+            <span class="material-symbols-outlined text-[26px]">auto_awesome</span>
           </div>
           <div class="flex flex-col min-w-0">
-            <h2 class="font-headline font-semibold text-base text-on-surface">Monte a sua Caixa de Afeto</h2>
-            <p class="font-body text-xs text-on-surface-variant">Selecione o tamanho ideal e recheie cada detalhe com guloseimas artesanais feitas com carinho.</p>
+            <h2 class="font-headline font-semibold text-lg sm:text-xl text-on-surface">Monte a sua Caixa de Afeto</h2>
+            <p class="font-body text-xs sm:text-sm text-on-surface-variant">Selecione o tamanho ideal e recheie cada detalhe com guloseimas artesanais feitas com carinho.</p>
           </div>
         </div>
 
-        <!-- Passo 1: Escolha de Tamanho -->
-        <div class="flex flex-col gap-2">
-          <div class="flex items-center justify-between">
-            <span class="font-headline text-xs font-bold text-on-surface">1. Escolha o Porte da Caixa</span>
-            <span class="font-headline text-[10px] font-bold text-secondary uppercase tracking-wider">Capacidade</span>
-          </div>
-          <div class="grid grid-cols-3 gap-2" id="builder-size-selector">
-            <button type="button" data-size="P" data-limit="10" data-price="89.90" class="builder-size-btn flex flex-col items-center justify-between p-3 rounded-xl transition-all duration-200 text-left ${builderState.tamanho === 'P' ? 'bg-primary text-on-primary shadow-md' : 'bg-surface-container text-on-surface shadow-sm'}">
-              <div class="flex items-center justify-between w-full">
-                <span class="font-headline font-bold text-xl">P</span>
-                <span class="material-symbols-outlined text-[18px] ${builderState.tamanho === 'P' ? 'opacity-100' : 'opacity-0'}">check_circle</span>
+        <!-- Layout de 2 colunas para telas grandes -->
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 items-start">
+          <!-- Coluna Esquerda: Porte da Caixa + Progresso da Capacidade -->
+          <div class="flex flex-col gap-5 lg:sticky lg:top-20">
+            <!-- Passo 1: Escolha de Tamanho -->
+            <div class="flex flex-col gap-2">
+              <div class="flex items-center justify-between">
+                <span class="font-headline text-xs font-bold text-on-surface uppercase tracking-wider">1. Escolha o Porte da Caixa</span>
+                <span class="font-headline text-[10px] font-bold text-secondary uppercase tracking-wider">Capacidade</span>
               </div>
-              <div class="flex flex-col w-full mt-2">
-                <span class="font-headline text-[10px] ${builderState.tamanho === 'P' ? 'opacity-90' : 'text-on-surface-variant'}">Até 10 itens</span>
-                <span class="font-headline font-semibold text-sm mt-0.5 ${builderState.tamanho === 'P' ? 'text-on-primary' : 'text-primary'}">R$ 89,90</span>
-              </div>
-            </button>
+              <div class="grid grid-cols-3 gap-2" id="builder-size-selector">
+                <button type="button" data-size="P" data-limit="10" data-price="89.90" class="builder-size-btn flex flex-col items-center justify-between p-3 rounded-xl transition-all duration-200 text-left ${builderState.tamanho === 'P' ? 'bg-primary text-on-primary shadow-md' : 'bg-surface-container text-on-surface shadow-sm hover:bg-surface-container-high'}">
+                  <div class="flex items-center justify-between w-full">
+                    <span class="font-headline font-bold text-xl">P</span>
+                    <span class="material-symbols-outlined text-[18px] ${builderState.tamanho === 'P' ? 'opacity-100' : 'opacity-0'}">check_circle</span>
+                  </div>
+                  <div class="flex flex-col w-full mt-2">
+                    <span class="font-headline text-[10px] ${builderState.tamanho === 'P' ? 'opacity-90' : 'text-on-surface-variant'}">Até 10 itens</span>
+                    <span class="font-headline font-semibold text-sm mt-0.5 ${builderState.tamanho === 'P' ? 'text-on-primary' : 'text-primary'}">R$ 89,90</span>
+                  </div>
+                </button>
 
-            <button type="button" data-size="M" data-limit="20" data-price="139.90" class="builder-size-btn flex flex-col items-center justify-between p-3 rounded-xl transition-all duration-200 text-left ${builderState.tamanho === 'M' ? 'bg-primary text-on-primary shadow-md' : 'bg-surface-container text-on-surface shadow-sm'}">
-              <div class="flex items-center justify-between w-full">
-                <span class="font-headline font-bold text-xl">M</span>
-                <span class="material-symbols-outlined text-[18px] ${builderState.tamanho === 'M' ? 'opacity-100' : 'opacity-0'}">check_circle</span>
-              </div>
-              <div class="flex flex-col w-full mt-2">
-                <span class="font-headline text-[10px] ${builderState.tamanho === 'M' ? 'opacity-90' : 'text-on-surface-variant'}">Até 20 itens</span>
-                <span class="font-headline font-semibold text-sm mt-0.5 ${builderState.tamanho === 'M' ? 'text-on-primary' : 'text-primary'}">R$ 139,90</span>
-              </div>
-            </button>
+                <button type="button" data-size="M" data-limit="20" data-price="139.90" class="builder-size-btn flex flex-col items-center justify-between p-3 rounded-xl transition-all duration-200 text-left ${builderState.tamanho === 'M' ? 'bg-primary text-on-primary shadow-md' : 'bg-surface-container text-on-surface shadow-sm hover:bg-surface-container-high'}">
+                  <div class="flex items-center justify-between w-full">
+                    <span class="font-headline font-bold text-xl">M</span>
+                    <span class="material-symbols-outlined text-[18px] ${builderState.tamanho === 'M' ? 'opacity-100' : 'opacity-0'}">check_circle</span>
+                  </div>
+                  <div class="flex flex-col w-full mt-2">
+                    <span class="font-headline text-[10px] ${builderState.tamanho === 'M' ? 'opacity-90' : 'text-on-surface-variant'}">Até 20 itens</span>
+                    <span class="font-headline font-semibold text-sm mt-0.5 ${builderState.tamanho === 'M' ? 'text-on-primary' : 'text-primary'}">R$ 139,90</span>
+                  </div>
+                </button>
 
-            <button type="button" data-size="G" data-limit="35" data-price="199.90" class="builder-size-btn flex flex-col items-center justify-between p-3 rounded-xl transition-all duration-200 text-left ${builderState.tamanho === 'G' ? 'bg-primary text-on-primary shadow-md' : 'bg-surface-container text-on-surface shadow-sm'}">
-              <div class="flex items-center justify-between w-full">
-                <span class="font-headline font-bold text-xl">G</span>
-                <span class="material-symbols-outlined text-[18px] ${builderState.tamanho === 'G' ? 'opacity-100' : 'opacity-0'}">check_circle</span>
+                <button type="button" data-size="G" data-limit="35" data-price="199.90" class="builder-size-btn flex flex-col items-center justify-between p-3 rounded-xl transition-all duration-200 text-left ${builderState.tamanho === 'G' ? 'bg-primary text-on-primary shadow-md' : 'bg-surface-container text-on-surface shadow-sm hover:bg-surface-container-high'}">
+                  <div class="flex items-center justify-between w-full">
+                    <span class="font-headline font-bold text-xl">G</span>
+                    <span class="material-symbols-outlined text-[18px] ${builderState.tamanho === 'G' ? 'opacity-100' : 'opacity-0'}">check_circle</span>
+                  </div>
+                  <div class="flex flex-col w-full mt-2">
+                    <span class="font-headline text-[10px] ${builderState.tamanho === 'G' ? 'opacity-90' : 'text-on-surface-variant'}">Até 35 itens</span>
+                    <span class="font-headline font-semibold text-sm mt-0.5 ${builderState.tamanho === 'G' ? 'text-on-primary' : 'text-primary'}">R$ 199,90</span>
+                  </div>
+                </button>
               </div>
-              <div class="flex flex-col w-full mt-2">
-                <span class="font-headline text-[10px] ${builderState.tamanho === 'G' ? 'opacity-90' : 'text-on-surface-variant'}">Até 35 itens</span>
-                <span class="font-headline font-semibold text-sm mt-0.5 ${builderState.tamanho === 'G' ? 'text-on-primary' : 'text-primary'}">R$ 199,90</span>
-              </div>
-            </button>
-          </div>
-        </div>
-
-        <!-- Passo 2: Barra Visual de Progresso -->
-        <div class="bg-surface-container-highest/60 rounded-xl p-4 shadow-sm flex flex-col gap-2">
-          <div class="flex items-center justify-between">
-            <div class="flex items-center gap-2">
-              <span class="material-symbols-outlined text-primary text-[20px]">inventory_2</span>
-              <span class="font-headline text-xs font-semibold text-on-surface">Capacidade Preenchida</span>
             </div>
-            <span class="font-headline text-sm text-primary font-bold" id="builder-count-summary">0 de ${builderState.capacidadeMax} itens</span>
-          </div>
-          <div class="w-full bg-surface-variant rounded-full h-2.5 overflow-hidden">
-            <div class="bg-primary h-full transition-all duration-300 rounded-full" id="builder-progress-bar" style="width: 0%;"></div>
-          </div>
-          <div class="flex items-center justify-between text-on-surface-variant">
-            <span class="font-body text-xs" id="builder-counter-hint">Faltam ${builderState.capacidadeMax} guloseimas para completar</span>
-            <span class="font-headline text-xs font-bold text-secondary" id="builder-percentage">0%</span>
-          </div>
-        </div>
 
-        <!-- Passo 3: Escolha dos Itens por Categoria -->
-        <div class="flex flex-col gap-2">
-          <div class="flex items-center justify-between">
-            <span class="font-headline text-xs font-bold text-on-surface">2. Escolha as Delícias</span>
-            <span class="font-headline text-[10px] text-on-surface-variant">Toque para filtrar</span>
-          </div>
-          <div class="flex gap-2 overflow-x-auto pb-1 no-scrollbar" id="builder-cat-pills">
-            <button type="button" data-cat="all" class="builder-cat-pill shrink-0 px-4 py-1.5 rounded-full bg-primary text-on-primary font-headline text-xs font-semibold shadow-sm transition-all">
-              Todos os Itens
-            </button>
-            <button type="button" data-cat="doces" class="builder-cat-pill shrink-0 px-4 py-1.5 rounded-full bg-surface-container text-on-surface font-headline text-xs transition-all">
-              Doces Gourmet
-            </button>
-            <button type="button" data-cat="salgados" class="builder-cat-pill shrink-0 px-4 py-1.5 rounded-full bg-surface-container text-on-surface font-headline text-xs transition-all">
-              Salgados Finos
-            </button>
-            <button type="button" data-cat="especiais" class="builder-cat-pill shrink-0 px-4 py-1.5 rounded-full bg-surface-container text-on-surface font-headline text-xs transition-all">
-              Especiais & Bebidas
-            </button>
-          </div>
-        </div>
-
-        <!-- Lista de Itens Selecionáveis -->
-        <div class="flex flex-col gap-3" id="builder-items-list">
-          ${state.itensPersonalizaveis.map(item => {
-            const qty = builderState.itensSelecionados[item.id] || 0;
-            return `
-              <div class="builder-item-card flex items-center justify-between p-3 rounded-xl bg-surface-container-lowest shadow-sm gap-3 border border-surface-container" data-id="${item.id}" data-category="${item.categoria}">
-                <img src="${item.imagem}" alt="${item.nome}" class="w-16 h-16 rounded-lg object-cover shrink-0 bg-surface-container"/>
-                <div class="flex flex-col flex-1 min-w-0">
-                  <span class="font-headline text-[10px] text-secondary font-bold uppercase tracking-wider">${item.categoria}</span>
-                  <span class="font-headline font-semibold text-sm text-on-surface truncate">${item.nome}</span>
-                  <span class="font-body text-xs text-on-surface-variant line-clamp-1">${item.descricao}</span>
+            <!-- Passo 2: Barra Visual de Progresso -->
+            <div class="bg-surface-container-lowest border border-surface-container rounded-2xl p-4 shadow-sm flex flex-col gap-2.5">
+              <div class="flex items-center justify-between">
+                <div class="flex items-center gap-2">
+                  <span class="material-symbols-outlined text-primary text-[20px]">inventory_2</span>
+                  <span class="font-headline text-xs font-semibold text-on-surface">Capacidade Preenchida</span>
                 </div>
-                <div class="flex items-center gap-2 bg-surface-container-low rounded-full px-2 py-1 shrink-0">
-                  <button type="button" data-item-action="minus" data-id="${item.id}" class="w-7 h-7 rounded-full bg-surface-container text-on-surface flex items-center justify-center transition-colors ${qty === 0 ? 'opacity-40 pointer-events-none' : ''}">
-                    <span class="material-symbols-outlined text-[16px]">remove</span>
-                  </button>
-                  <span class="builder-item-qty font-headline font-bold text-sm text-on-surface w-5 text-center">${qty}</span>
-                  <button type="button" data-item-action="plus" data-id="${item.id}" class="w-7 h-7 rounded-full bg-primary text-on-primary flex items-center justify-center transition-colors">
-                    <span class="material-symbols-outlined text-[16px]">add</span>
-                  </button>
-                </div>
+                <span class="font-headline text-sm text-primary font-bold" id="builder-count-summary">0 de ${builderState.capacidadeMax} itens</span>
               </div>
-            `;
-          }).join('')}
+              <div class="w-full bg-surface-container-high rounded-full h-3 overflow-hidden">
+                <div class="bg-primary h-full transition-all duration-300 rounded-full" id="builder-progress-bar" style="width: 0%;"></div>
+              </div>
+              <div class="flex items-center justify-between text-on-surface-variant">
+                <span class="font-body text-xs" id="builder-counter-hint">Faltam ${builderState.capacidadeMax} guloseimas para completar</span>
+                <span class="font-headline text-xs font-bold text-secondary" id="builder-percentage">0%</span>
+              </div>
+            </div>
+
+            <!-- Card de CTA em Desktop (Subtotal & Botão de Compra) -->
+            <div class="hidden lg:flex flex-col bg-surface-container-low rounded-2xl p-5 border border-surface-container gap-3 shadow-sm">
+              <div class="flex items-center justify-between">
+                <span class="font-headline text-xs font-bold uppercase tracking-wider text-on-surface-variant">Total da sua Caixa</span>
+                <span class="font-headline text-xs font-semibold text-secondary" id="builder-selection-status-desktop">0 de ${builderState.capacidadeMax} selecionados</span>
+              </div>
+              <div class="flex items-baseline gap-1.5">
+                <span class="font-headline font-bold text-2xl text-primary" id="builder-display-price-desktop">${formatBRL(builderState.preco)}</span>
+                <span class="font-headline text-xs font-semibold text-secondary" id="builder-display-size-desktop">(Tamanho ${builderState.tamanho})</span>
+              </div>
+              <button type="button" id="btn-add-custom-box-desktop" class="w-full h-12 bg-primary text-on-primary rounded-xl font-headline text-xs font-semibold flex items-center justify-center gap-2 shadow-md hover:bg-primary-container active:scale-95 transition-all">
+                <span class="material-symbols-outlined text-[20px]">shopping_basket</span>
+                <span>Adicionar ao Carrinho</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Coluna Direita: Seleção de Itens / Delícias -->
+          <div class="lg:col-span-2 flex flex-col gap-4">
+            <!-- Passo 3: Escolha dos Itens por Categoria -->
+            <div class="flex flex-col gap-2">
+              <div class="flex items-center justify-between">
+                <span class="font-headline text-xs font-bold text-on-surface uppercase tracking-wider">2. Escolha as Delícias</span>
+                <span class="font-headline text-xs text-on-surface-variant">Selecione para rechear</span>
+              </div>
+              <div class="flex gap-2 overflow-x-auto pb-1 no-scrollbar" id="builder-cat-pills">
+                <button type="button" data-cat="all" class="builder-cat-pill shrink-0 px-4 py-1.5 rounded-full bg-primary text-on-primary font-headline text-xs font-semibold shadow-sm transition-all">
+                  Todos os Itens
+                </button>
+                <button type="button" data-cat="doces" class="builder-cat-pill shrink-0 px-4 py-1.5 rounded-full bg-surface-container text-on-surface font-headline text-xs hover:bg-surface-container-high transition-all">
+                  Doces Gourmet
+                </button>
+                <button type="button" data-cat="salgados" class="builder-cat-pill shrink-0 px-4 py-1.5 rounded-full bg-surface-container text-on-surface font-headline text-xs hover:bg-surface-container-high transition-all">
+                  Salgados Finos
+                </button>
+                <button type="button" data-cat="especiais" class="builder-cat-pill shrink-0 px-4 py-1.5 rounded-full bg-surface-container text-on-surface font-headline text-xs hover:bg-surface-container-high transition-all">
+                  Especiais & Bebidas
+                </button>
+              </div>
+            </div>
+
+            <!-- Lista / Grid de Itens Selecionáveis -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3" id="builder-items-list">
+              ${state.itensPersonalizaveis.map(item => {
+                const qty = builderState.itensSelecionados[item.id] || 0;
+                return `
+                  <div class="builder-item-card flex items-center justify-between p-3 rounded-2xl bg-surface-container-lowest shadow-sm gap-3 border border-surface-container hover:border-outline-variant transition-colors" data-id="${item.id}" data-category="${item.categoria}">
+                    <img src="${item.imagem}" alt="${item.nome}" class="w-16 h-16 rounded-xl object-cover shrink-0 bg-surface-container"/>
+                    <div class="flex flex-col flex-1 min-w-0">
+                      <span class="font-headline text-[10px] text-secondary font-bold uppercase tracking-wider">${item.categoria}</span>
+                      <span class="font-headline font-semibold text-sm text-on-surface truncate">${item.nome}</span>
+                      <span class="font-body text-xs text-on-surface-variant line-clamp-1">${item.descricao}</span>
+                    </div>
+                    <div class="flex items-center gap-2 bg-surface-container-low rounded-full px-2 py-1 shrink-0">
+                      <button type="button" data-item-action="minus" data-id="${item.id}" class="w-7 h-7 rounded-full bg-surface-container text-on-surface flex items-center justify-center transition-colors ${qty === 0 ? 'opacity-40 pointer-events-none' : ''}">
+                        <span class="material-symbols-outlined text-[16px]">remove</span>
+                      </button>
+                      <span class="builder-item-qty font-headline font-bold text-sm text-on-surface w-5 text-center">${qty}</span>
+                      <button type="button" data-item-action="plus" data-id="${item.id}" class="w-7 h-7 rounded-full bg-primary text-on-primary flex items-center justify-center transition-colors">
+                        <span class="material-symbols-outlined text-[16px]">add</span>
+                      </button>
+                    </div>
+                  </div>
+                `;
+              }).join('')}
+            </div>
+          </div>
         </div>
 
-        <!-- Barra Sticky de CTA e Subtotal -->
-        <div class="sticky bottom-0 -mx-margin-screen px-margin-screen pt-3 pb-4 bg-surface/95 backdrop-blur-md shadow-[0_-8px_20px_rgba(142,74,80,0.08)] z-30 flex flex-col gap-2">
+        <!-- Barra Sticky / Flutuante de CTA e Subtotal (Mobile / Tablet) -->
+        <div class="lg:hidden fixed bottom-16 sm:bottom-0 left-0 right-0 px-margin-screen pt-3 pb-4 bg-surface/95 backdrop-blur-md shadow-[0_-8px_20px_rgba(142,74,80,0.08)] z-30 flex flex-col gap-2">
           <div class="flex items-center justify-between">
             <div class="flex flex-col">
               <span class="font-headline text-[10px] text-on-surface-variant font-bold uppercase tracking-wider">Total da sua Caixa</span>
@@ -645,48 +681,51 @@
     }
 
     // Add Custom Box to Cart
-    const addBtn = container.querySelector('#btn-add-custom-box');
-    if (addBtn) {
-      addBtn.addEventListener('click', () => {
-        const totalItems = Object.values(builderState.itensSelecionados).reduce((a, b) => a + b, 0);
-        if (totalItems === 0) {
-          showToast('Escolha pelo menos 1 item para a sua caixa personalizada.');
-          return;
+    function handleAddCustomBox() {
+      const totalItems = Object.values(builderState.itensSelecionados).reduce((a, b) => a + b, 0);
+      if (totalItems === 0) {
+        showToast('Escolha pelo menos 1 item para a sua caixa personalizada.');
+        return;
+      }
+
+      // Format summary list of items
+      const itemNamesList = [];
+      Object.keys(builderState.itensSelecionados).forEach(id => {
+        const count = builderState.itensSelecionados[id];
+        const found = state.itensPersonalizaveis.find(i => i.id === id);
+        if (found && count > 0) {
+          itemNamesList.push(`${count}x ${found.nome}`);
         }
-
-        // Format summary list of items
-        const itemNamesList = [];
-        Object.keys(builderState.itensSelecionados).forEach(id => {
-          const count = builderState.itensSelecionados[id];
-          const found = state.itensPersonalizaveis.find(i => i.id === id);
-          if (found && count > 0) {
-            itemNamesList.push(`${count}x ${found.nome}`);
-          }
-        });
-
-        const customBoxObj = {
-          id: `custom-box-${Date.now()}`,
-          nome: `Caixa Personalizada (${builderState.tamanho})`,
-          tamanho: builderState.tamanho,
-          preco: builderState.preco,
-          quantidade: 1,
-          itens: itemNamesList,
-          imagem: 'https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?auto=format&fit=crop&w=600&q=80',
-          isCustom: true
-        };
-
-        state.cart.push(customBoxObj);
-        saveCart();
-        showToast('Caixa personalizada adicionada ao carrinho!');
-
-        // Reset builder items selection
-        builderState.itensSelecionados = {};
-
-        setTimeout(() => {
-          navigateTo('meu-pedido');
-        }, 600);
       });
+
+      const customBoxObj = {
+        id: `custom-box-${Date.now()}`,
+        nome: `Caixa Personalizada (${builderState.tamanho})`,
+        tamanho: builderState.tamanho,
+        preco: builderState.preco,
+        quantidade: 1,
+        itens: itemNamesList,
+        imagem: 'https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?auto=format&fit=crop&w=600&q=80',
+        isCustom: true
+      };
+
+      state.cart.push(customBoxObj);
+      saveCart();
+      showToast('Caixa personalizada adicionada ao carrinho!');
+
+      // Reset builder items selection
+      builderState.itensSelecionados = {};
+
+      setTimeout(() => {
+        navigateTo('meu-pedido');
+      }, 600);
     }
+
+    const addBtn = container.querySelector('#btn-add-custom-box');
+    if (addBtn) addBtn.addEventListener('click', handleAddCustomBox);
+
+    const addBtnDesktop = container.querySelector('#btn-add-custom-box-desktop');
+    if (addBtnDesktop) addBtnDesktop.addEventListener('click', handleAddCustomBox);
   }
 
   function updateBuilderUI(container) {
@@ -698,15 +737,21 @@
     const counterHint = container.querySelector('#builder-counter-hint');
     const percentageEl = container.querySelector('#builder-percentage');
     const selectionStatus = container.querySelector('#builder-selection-status');
+    const selectionStatusDesktop = container.querySelector('#builder-selection-status-desktop');
     const displayPrice = container.querySelector('#builder-display-price');
+    const displayPriceDesktop = container.querySelector('#builder-display-price-desktop');
     const displaySize = container.querySelector('#builder-display-size');
+    const displaySizeDesktop = container.querySelector('#builder-display-size-desktop');
 
     if (progressBar) progressBar.style.width = `${percent}%`;
     if (countSummary) countSummary.textContent = `${totalSelected} de ${builderState.capacidadeMax} itens`;
     if (percentageEl) percentageEl.textContent = `${percent}%`;
     if (selectionStatus) selectionStatus.textContent = `${totalSelected} de ${builderState.capacidadeMax} selecionados`;
+    if (selectionStatusDesktop) selectionStatusDesktop.textContent = `${totalSelected} de ${builderState.capacidadeMax} selecionados`;
     if (displayPrice) displayPrice.textContent = formatBRL(builderState.preco);
+    if (displayPriceDesktop) displayPriceDesktop.textContent = formatBRL(builderState.preco);
     if (displaySize) displaySize.textContent = `(Tamanho ${builderState.tamanho})`;
+    if (displaySizeDesktop) displaySizeDesktop.textContent = `(Tamanho ${builderState.tamanho})`;
 
     if (counterHint) {
       const remaining = builderState.capacidadeMax - totalSelected;
@@ -755,72 +800,57 @@
     });
     const totalOrder = subtotal > 0 ? subtotal + state.checkout.deliveryFee : 0;
 
-    container.innerHTML = `
-      <div class="flex flex-col w-full px-margin-screen pt-3 pb-24 gap-4 fade-in" id="checkout-view-root">
-        <!-- Progress Stepper -->
-        <div class="flex items-center justify-between py-1">
-          <div class="flex items-center gap-1.5">
-            <span class="flex items-center justify-center w-6 h-6 rounded-full bg-primary text-on-primary font-headline text-xs font-bold">1</span>
-            <span class="font-headline text-xs font-semibold text-primary">Carrinho</span>
-          </div>
-          <div class="h-0.5 flex-1 mx-2 bg-surface-container-highest">
-            <div class="h-full bg-primary w-2/3 rounded-full"></div>
-          </div>
-          <div class="flex items-center gap-1.5">
-            <span class="flex items-center justify-center w-6 h-6 rounded-full bg-primary-container text-on-primary font-headline text-xs font-bold">2</span>
-            <span class="font-headline text-xs font-semibold text-primary">Cadastro & GPS</span>
-          </div>
-          <div class="h-0.5 flex-1 mx-2 bg-surface-container-highest"></div>
-          <div class="flex items-center gap-1.5">
-            <span class="flex items-center justify-center w-6 h-6 rounded-full bg-surface-container-highest text-on-surface-variant font-headline text-xs font-bold">3</span>
-            <span class="font-headline text-xs text-on-surface-variant">Confirmação</span>
+    const cartItemsHtml = state.cart.map((item, index) => `
+      <div class="flex items-center gap-3 p-3 bg-surface-container-low rounded-xl">
+        <img src="${item.imagem}" alt="${item.nome}" class="w-16 h-16 sm:w-20 sm:h-20 rounded-xl object-cover bg-surface-container shrink-0"/>
+        <div class="flex-1 min-w-0">
+          <h4 class="font-headline font-semibold text-sm sm:text-base text-on-surface truncate">${item.nome}</h4>
+          <span class="font-headline text-[10px] text-secondary font-bold uppercase">Tamanho ${item.tamanho}</span>
+          <div class="font-headline font-bold text-xs sm:text-sm text-primary mt-0.5">${formatBRL(item.preco)}</div>
+        </div>
+        <div class="flex flex-col items-end gap-2">
+          <button type="button" data-cart-remove="${index}" class="text-on-surface-variant hover:text-error transition-colors p-1" title="Remover">
+            <span class="material-symbols-outlined text-[20px]">delete</span>
+          </button>
+          <div class="flex items-center gap-1 bg-surface-container-lowest rounded-lg p-1 shadow-sm border border-surface-container">
+            <button type="button" data-cart-dec="${index}" class="w-7 h-7 flex items-center justify-center rounded text-primary font-headline font-bold text-xs active:scale-95 transition-transform">-</button>
+            <span class="font-headline text-xs font-bold px-1.5 min-w-[20px] text-center">${item.quantidade}</span>
+            <button type="button" data-cart-inc="${index}" class="w-7 h-7 flex items-center justify-center rounded text-primary font-headline font-bold text-xs active:scale-95 transition-transform">+</button>
           </div>
         </div>
+      </div>
+    `).join('');
 
-        <!-- 1. Lista de Itens no Carrinho -->
-        <section class="flex flex-col bg-surface-container-lowest rounded-xl p-4 shadow-sm gap-3 border border-surface-container">
-          <div class="flex items-center justify-between border-b border-surface-container-high pb-2">
-            <div class="flex items-center gap-2">
-              <span class="material-symbols-outlined text-primary text-[20px]">shopping_basket</span>
-              <h2 class="font-headline font-semibold text-base text-on-surface">Itens Selecionados</h2>
+    const bodyContentHtml = state.cart.length === 0 ? `
+      <!-- Carrinho Vazio -->
+      <div class="py-12 text-center text-on-surface-variant flex flex-col items-center bg-surface-container-lowest rounded-2xl p-6 shadow-sm border border-surface-container max-w-lg mx-auto w-full">
+        <span class="material-symbols-outlined text-[48px] text-outline-variant mb-2">remove_shopping_cart</span>
+        <h3 class="font-headline font-semibold text-lg text-primary mb-1">Sua caixinha de surpresas está vazia</h3>
+        <p class="font-body text-xs text-on-surface-variant mb-4">Adicione uma festa na caixa do cardápio ou monte uma personalizada.</p>
+        <button type="button" class="px-6 py-2.5 bg-primary text-on-primary rounded-xl font-headline text-xs font-semibold hover:bg-primary-container transition-colors nav-tab-trigger" data-tab="cardapio">
+          Explorar Cardápio
+        </button>
+      </div>
+    ` : `
+      <!-- Layout de 2 colunas no desktop para Checkout -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 items-start">
+        <!-- Coluna Esquerda: Itens Selecionados no Carrinho & Resumo -->
+        <div class="flex flex-col gap-4">
+          <section class="flex flex-col bg-surface-container-lowest rounded-2xl p-5 shadow-sm gap-3 border border-surface-container">
+            <div class="flex items-center justify-between border-b border-surface-container-high pb-3">
+              <div class="flex items-center gap-2">
+                <span class="material-symbols-outlined text-primary text-[22px]">shopping_basket</span>
+                <h2 class="font-headline font-semibold text-base text-on-surface">Itens Selecionados</h2>
+              </div>
+              <span class="font-headline text-xs font-bold text-secondary bg-surface-container-low px-2.5 py-1 rounded-full" id="cart-items-counter">${state.cart.length} caixas</span>
             </div>
-            <span class="font-headline text-xs font-bold text-secondary bg-surface-container-low px-2 py-0.5 rounded-full" id="cart-items-counter">${state.cart.length} caixas</span>
-          </div>
 
-          <div class="flex flex-col gap-3" id="cart-items-list-container">
-            ${state.cart.length === 0 ? `
-              <div class="py-6 text-center text-on-surface-variant flex flex-col items-center">
-                <span class="material-symbols-outlined text-[36px] text-outline-variant mb-1">remove_shopping_cart</span>
-                <span class="font-body text-xs">Sua caixa de surpresas está vazia.</span>
-                <button type="button" class="mt-3 px-4 py-2 bg-primary text-on-primary rounded-lg font-headline text-xs font-semibold nav-tab-trigger" data-tab="cardapio">
-                  Explorar Cardápio
-                </button>
-              </div>
-            ` : state.cart.map((item, index) => `
-              <div class="flex items-center gap-3 p-2 bg-surface-container-low rounded-xl">
-                <img src="${item.imagem}" alt="${item.nome}" class="w-16 h-16 rounded-lg object-cover bg-surface-container shrink-0"/>
-                <div class="flex-1 min-w-0">
-                  <h4 class="font-headline font-semibold text-sm text-on-surface truncate">${item.nome}</h4>
-                  <span class="font-headline text-[10px] text-secondary font-bold uppercase">Tamanho ${item.tamanho}</span>
-                  <div class="font-headline font-bold text-xs text-primary mt-0.5">${formatBRL(item.preco)}</div>
-                </div>
-                <div class="flex flex-col items-end gap-1">
-                  <button type="button" data-cart-remove="${index}" class="text-on-surface-variant hover:text-error transition-colors p-1" title="Remover">
-                    <span class="material-symbols-outlined text-[18px]">delete</span>
-                  </button>
-                  <div class="flex items-center gap-1 bg-surface-container-lowest rounded-lg p-0.5 shadow-sm">
-                    <button type="button" data-cart-dec="${index}" class="w-6 h-6 flex items-center justify-center rounded text-primary font-headline font-bold text-xs active:scale-95 transition-transform">-</button>
-                    <span class="font-headline text-xs font-bold px-1 min-w-[16px] text-center">${item.quantidade}</span>
-                    <button type="button" data-cart-inc="${index}" class="w-6 h-6 flex items-center justify-center rounded text-primary font-headline font-bold text-xs active:scale-95 transition-transform">+</button>
-                  </div>
-                </div>
-              </div>
-            `).join('')}
-          </div>
+            <div class="flex flex-col gap-3" id="cart-items-list-container">
+              ${cartItemsHtml}
+            </div>
 
-          <!-- Resumo Financeiro -->
-          ${state.cart.length > 0 ? `
-            <div class="pt-2 gap-1.5 bg-surface-container-low p-3 rounded-lg flex flex-col font-body text-xs">
+            <!-- Resumo Financeiro -->
+            <div class="pt-3 gap-2 bg-surface-container-low p-4 rounded-xl flex flex-col font-body text-xs sm:text-sm">
               <div class="flex justify-between text-on-surface-variant">
                 <span>Subtotal</span>
                 <span>${formatBRL(subtotal)}</span>
@@ -829,41 +859,42 @@
                 <span>Taxa de Entrega Segura</span>
                 <span>${formatBRL(state.checkout.deliveryFee)}</span>
               </div>
-              <div class="flex justify-between font-headline font-bold text-sm text-on-surface pt-1 border-t border-surface-container-high">
+              <div class="flex justify-between font-headline font-bold text-base text-on-surface pt-2 border-t border-surface-container-high">
                 <span>Total do Pedido</span>
                 <span class="text-primary">${formatBRL(totalOrder)}</span>
               </div>
             </div>
-          ` : ''}
-        </section>
+          </section>
+        </div>
 
-        ${state.cart.length > 0 ? `
+        <!-- Coluna Direita: Dados de Cadastro, GPS, Biometria & Pagamento -->
+        <div class="flex flex-col gap-4">
           <!-- 2. Form de Cadastro do Destinatário -->
-          <section class="flex flex-col bg-surface-container-lowest rounded-xl p-4 shadow-sm gap-3 border border-surface-container">
+          <section class="flex flex-col bg-surface-container-lowest rounded-2xl p-5 shadow-sm gap-3 border border-surface-container">
             <div class="flex items-center gap-2">
-              <span class="material-symbols-outlined text-primary text-[20px]">person_pin</span>
+              <span class="material-symbols-outlined text-primary text-[22px]">person_pin</span>
               <h2 class="font-headline font-semibold text-base text-on-surface">Dados do Destinatário</h2>
             </div>
             <div class="flex flex-col gap-3">
               <div>
                 <label for="cust-name" class="block font-headline text-xs font-semibold text-on-surface mb-1">Nome Completo</label>
-                <input type="text" id="cust-name" placeholder="Ex: Carolina Mattos Albuquerque" class="w-full bg-surface-container-low px-3 py-2 rounded-lg font-body text-xs text-on-surface outline-none focus:bg-surface border border-surface-container transition-colors"/>
+                <input type="text" id="cust-name" placeholder="Ex: Carolina Mattos Albuquerque" class="w-full bg-surface-container-low px-3.5 py-2.5 rounded-xl font-body text-xs sm:text-sm text-on-surface outline-none focus:bg-surface border border-surface-container transition-colors"/>
               </div>
               <div>
                 <label for="cust-phone" class="block font-headline text-xs font-semibold text-on-surface mb-1">WhatsApp para Confirmação</label>
-                <input type="tel" id="cust-phone" maxlength="15" placeholder="(11) 98765-4321" class="w-full bg-surface-container-low px-3 py-2 rounded-lg font-body text-xs text-on-surface outline-none focus:bg-surface border border-surface-container transition-colors"/>
+                <input type="tel" id="cust-phone" maxlength="15" placeholder="(11) 98765-4321" class="w-full bg-surface-container-low px-3.5 py-2.5 rounded-xl font-body text-xs sm:text-sm text-on-surface outline-none focus:bg-surface border border-surface-container transition-colors"/>
               </div>
               <div>
                 <label for="cust-address" class="block font-headline text-xs font-semibold text-on-surface mb-1">Endereço de Entrega</label>
-                <input type="text" id="cust-address" placeholder="Rua, Número, Complemento e Bairro" class="w-full bg-surface-container-low px-3 py-2 rounded-lg font-body text-xs text-on-surface outline-none focus:bg-surface border border-surface-container transition-colors"/>
+                <input type="text" id="cust-address" placeholder="Rua, Número, Complemento e Bairro" class="w-full bg-surface-container-low px-3.5 py-2.5 rounded-xl font-body text-xs sm:text-sm text-on-surface outline-none focus:bg-surface border border-surface-container transition-colors"/>
               </div>
             </div>
           </section>
 
           <!-- 3. Validação Obrigatória de Geolocalização GPS -->
-          <section class="flex flex-col bg-surface-container-lowest rounded-xl p-4 shadow-sm gap-3 border border-surface-container">
+          <section class="flex flex-col bg-surface-container-lowest rounded-2xl p-5 shadow-sm gap-3 border border-surface-container">
             <div class="flex items-start gap-2">
-              <span class="material-symbols-outlined text-primary text-[20px] mt-0.5">near_me</span>
+              <span class="material-symbols-outlined text-primary text-[22px] mt-0.5">near_me</span>
               <div class="flex-1">
                 <h2 class="font-headline font-semibold text-base text-on-surface">Localização de Precisão GPS (Obrigatório)</h2>
                 <p class="font-body text-xs text-on-surface-variant mt-0.5">
@@ -872,21 +903,21 @@
               </div>
             </div>
 
-            <div id="geo-status-box" class="flex flex-col p-3 rounded-lg bg-surface-container-low gap-2">
+            <div id="geo-status-box" class="flex flex-col p-3 rounded-xl bg-surface-container-low gap-2">
               ${state.checkout.geolocation ? `
-                <div class="flex items-center justify-between p-2 bg-surface-container-high rounded-lg">
+                <div class="flex items-center justify-between p-2.5 bg-surface-container-high rounded-lg">
                   <div class="flex items-center gap-2 text-secondary font-headline text-xs">
                     <span class="material-symbols-outlined text-primary text-[18px]">check_circle</span>
                     <span>GPS: ${state.checkout.geolocation.latitude.toFixed(4)}, ${state.checkout.geolocation.longitude.toFixed(4)}</span>
                   </div>
-                  <span class="font-headline text-[10px] text-primary bg-primary-fixed px-2 py-0.5 rounded-full font-bold">Confirmada</span>
+                  <span class="font-headline text-[10px] text-primary bg-primary-fixed px-2.5 py-0.5 rounded-full font-bold">Confirmada</span>
                 </div>
               ` : `
                 <div class="flex items-center gap-2 text-on-surface-variant">
                   <span class="material-symbols-outlined text-[18px]">satellite_alt</span>
                   <span class="font-headline text-xs" id="geo-status-text">Localização pendente de validação</span>
                 </div>
-                <button type="button" id="btn-capture-geo" class="w-full h-11 flex items-center justify-center gap-2 rounded-lg bg-secondary text-on-secondary font-headline text-xs font-semibold shadow-sm active:scale-[0.98] transition-transform">
+                <button type="button" id="btn-capture-geo" class="w-full h-11 flex items-center justify-center gap-2 rounded-xl bg-secondary text-on-secondary font-headline text-xs font-semibold shadow-sm active:scale-[0.98] transition-transform hover:bg-secondary-container hover:text-on-secondary-container">
                   <span class="material-symbols-outlined text-[20px]">explore</span>
                   <span>Capturar Localização GPS</span>
                 </button>
@@ -895,9 +926,9 @@
           </section>
 
           <!-- 4. Camada de Segurança e Prova de Vida (CredentialsContainer) -->
-          <section class="flex flex-col bg-surface-container-lowest rounded-xl p-4 shadow-sm gap-3 border border-surface-container">
+          <section class="flex flex-col bg-surface-container-lowest rounded-2xl p-5 shadow-sm gap-3 border border-surface-container">
             <div class="flex items-start gap-2">
-              <span class="material-symbols-outlined text-primary text-[20px] mt-0.5">verified_user</span>
+              <span class="material-symbols-outlined text-primary text-[22px] mt-0.5">verified_user</span>
               <div class="flex-1">
                 <h2 class="font-headline font-semibold text-base text-on-surface">Validação de Credenciais do Dispositivo</h2>
                 <p class="font-body text-xs text-on-surface-variant mt-0.5">
@@ -908,12 +939,12 @@
 
             <div class="flex flex-col gap-2">
               ${state.checkout.biometricsVerified ? `
-                <div class="flex items-center justify-center gap-2 py-2 px-3 rounded-lg bg-surface-container text-primary font-headline text-xs font-semibold">
+                <div class="flex items-center justify-center gap-2 py-2.5 px-3 rounded-xl bg-surface-container text-primary font-headline text-xs font-semibold">
                   <span class="material-symbols-outlined text-[18px]">lock</span>
                   <span>Identidade e Token de Dispositivo Autenticados</span>
                 </div>
               ` : `
-                <button type="button" id="btn-validate-device" class="w-full h-11 flex items-center justify-center gap-2 rounded-lg bg-surface-container-high text-primary font-headline text-xs font-semibold active:scale-[0.98] transition-all border border-primary-container/20">
+                <button type="button" id="btn-validate-device" class="w-full h-11 flex items-center justify-center gap-2 rounded-xl bg-surface-container-high text-primary font-headline text-xs font-semibold active:scale-[0.98] transition-all border border-primary-container/20 hover:bg-surface-container-highest">
                   <span class="material-symbols-outlined text-[20px]">fingerprint</span>
                   <span>Validar Credenciais do Dispositivo</span>
                 </button>
@@ -922,18 +953,18 @@
           </section>
 
           <!-- 5. Simulação de Gateway de Pagamento -->
-          <section class="flex flex-col bg-surface-container-lowest rounded-xl p-4 shadow-sm gap-3 border border-surface-container">
+          <section class="flex flex-col bg-surface-container-lowest rounded-2xl p-5 shadow-sm gap-3 border border-surface-container">
             <div class="flex items-center gap-2">
-              <span class="material-symbols-outlined text-primary text-[20px]">payments</span>
+              <span class="material-symbols-outlined text-primary text-[22px]">payments</span>
               <h2 class="font-headline font-semibold text-base text-on-surface">Forma de Pagamento (Simulação)</h2>
             </div>
             <div class="grid grid-cols-2 gap-3">
-              <button type="button" id="pay-opt-pix" class="flex flex-col items-center justify-center p-3 rounded-xl transition-all ${state.checkout.paymentMethod === 'pix' ? 'bg-primary text-on-primary' : 'bg-surface-container-low text-on-surface-variant'}">
+              <button type="button" id="pay-opt-pix" class="flex flex-col items-center justify-center p-3 rounded-xl transition-all ${state.checkout.paymentMethod === 'pix' ? 'bg-primary text-on-primary shadow-sm' : 'bg-surface-container-low text-on-surface-variant hover:bg-surface-container-high'}">
                 <span class="material-symbols-outlined text-[26px] mb-1">qr_code_2</span>
                 <span class="font-headline text-xs font-semibold">PIX Instantâneo</span>
                 <span class="font-headline text-[10px] opacity-90 mt-0.5">Aprovação em 5s</span>
               </button>
-              <button type="button" id="pay-opt-card" class="flex flex-col items-center justify-center p-3 rounded-xl transition-all ${state.checkout.paymentMethod === 'card' ? 'bg-primary text-on-primary' : 'bg-surface-container-low text-on-surface-variant'}">
+              <button type="button" id="pay-opt-card" class="flex flex-col items-center justify-center p-3 rounded-xl transition-all ${state.checkout.paymentMethod === 'card' ? 'bg-primary text-on-primary shadow-sm' : 'bg-surface-container-low text-on-surface-variant hover:bg-surface-container-high'}">
                 <span class="material-symbols-outlined text-[26px] mb-1">credit_card</span>
                 <span class="font-headline text-xs font-semibold">Cartão de Crédito</span>
                 <span class="font-headline text-[10px] opacity-80 mt-0.5">Até 3x sem juros</span>
@@ -942,14 +973,14 @@
           </section>
 
           <!-- Error Alert Box -->
-          <div id="checkout-error-box" class="hidden p-3 rounded-lg bg-error-container text-on-error-container font-headline text-xs flex items-center gap-2">
+          <div id="checkout-error-box" class="hidden p-3.5 rounded-xl bg-error-container text-on-error-container font-headline text-xs flex items-center gap-2">
             <span class="material-symbols-outlined text-[20px] text-error shrink-0">error</span>
             <span id="checkout-error-msg">Preencha todos os campos e validações obrigatórias.</span>
           </div>
 
           <!-- Botão de Finalizar Pedido -->
           <div class="pt-1 pb-4">
-            <button type="button" id="btn-submit-order" class="w-full h-12 flex items-center justify-center gap-2 rounded-xl bg-primary text-on-primary font-headline text-sm font-semibold shadow-md active:scale-[0.98] transition-all">
+            <button type="button" id="btn-submit-order" class="w-full h-12 flex items-center justify-center gap-2 rounded-xl bg-primary text-on-primary font-headline text-sm font-semibold shadow-md active:scale-[0.98] hover:bg-primary-container transition-all">
               <span class="material-symbols-outlined text-[22px]">card_giftcard</span>
               <span>Confirmar e Realizar Pedido</span>
             </button>
@@ -957,7 +988,33 @@
               Ambiente protegido com criptografia de ponta a ponta
             </p>
           </div>
-        ` : ''}
+        </div>
+      </div>
+    `;
+
+    container.innerHTML = `
+      <div class="max-w-6xl mx-auto w-full px-margin-screen sm:px-6 pt-3 pb-24 md:pb-12 flex flex-col gap-5 fade-in" id="checkout-view-root">
+        <!-- Progress Stepper -->
+        <div class="flex items-center justify-between py-1 max-w-xl mx-auto w-full">
+          <div class="flex items-center gap-1.5">
+            <span class="flex items-center justify-center w-7 h-7 rounded-full bg-primary text-on-primary font-headline text-xs font-bold">1</span>
+            <span class="font-headline text-xs font-semibold text-primary">Carrinho</span>
+          </div>
+          <div class="h-0.5 flex-1 mx-3 bg-surface-container-highest">
+            <div class="h-full bg-primary w-2/3 rounded-full"></div>
+          </div>
+          <div class="flex items-center gap-1.5">
+            <span class="flex items-center justify-center w-7 h-7 rounded-full bg-primary-container text-on-primary font-headline text-xs font-bold">2</span>
+            <span class="font-headline text-xs font-semibold text-primary">Cadastro & GPS</span>
+          </div>
+          <div class="h-0.5 flex-1 mx-3 bg-surface-container-highest"></div>
+          <div class="flex items-center gap-1.5">
+            <span class="flex items-center justify-center w-7 h-7 rounded-full bg-surface-container-highest text-on-surface-variant font-headline text-xs font-bold">3</span>
+            <span class="font-headline text-xs text-on-surface-variant">Confirmação</span>
+          </div>
+        </div>
+
+        ${bodyContentHtml}
       </div>
 
       <!-- Device Verification Modal Dialog -->
@@ -1223,31 +1280,31 @@
     const waLink = `https://wa.me/5511999999999?text=${waMessage}`;
 
     container.innerHTML = `
-      <div class="flex flex-col w-full px-margin-screen pt-3 pb-24 gap-4 fade-in">
+      <div class="max-w-2xl mx-auto w-full px-margin-screen sm:px-6 pt-3 pb-24 md:pb-12 flex flex-col gap-5 fade-in">
         <!-- Card de Sucesso -->
-        <div class="bg-surface-container-lowest rounded-xl p-6 shadow-sm text-center flex flex-col items-center gap-2 border border-surface-container">
-          <div class="w-16 h-16 rounded-full bg-primary-fixed flex items-center justify-center text-primary mb-1">
-            <span class="material-symbols-outlined text-[36px]">celebration</span>
+        <div class="bg-surface-container-lowest rounded-2xl p-6 sm:p-8 shadow-sm text-center flex flex-col items-center gap-3 border border-surface-container">
+          <div class="w-20 h-20 rounded-full bg-primary-fixed flex items-center justify-center text-primary mb-1">
+            <span class="material-symbols-outlined text-[42px]">celebration</span>
           </div>
-          <span class="font-headline text-[10px] font-bold uppercase tracking-widest text-secondary">Celebração Registrada</span>
-          <h2 class="font-headline font-semibold text-2xl text-primary">Pagamento Aprovado!</h2>
-          <p class="font-body text-xs text-on-surface-variant max-w-xs">
+          <span class="font-headline text-[10px] sm:text-xs font-bold uppercase tracking-widest text-secondary">Celebração Registrada</span>
+          <h2 class="font-headline font-semibold text-2xl sm:text-3xl text-primary">Pagamento Aprovado!</h2>
+          <p class="font-body text-xs sm:text-sm text-on-surface-variant max-w-md">
             Nossa equipe de ateliê já começou a confeccionar cada detalhe com amor e carinho.
           </p>
-          <div class="w-full py-2 px-4 bg-surface-container rounded-lg flex items-center justify-between mt-2">
+          <div class="w-full py-2.5 px-4 bg-surface-container rounded-xl flex items-center justify-between mt-2 max-w-sm">
             <span class="font-headline text-xs text-on-surface-variant">Protocolo do Pedido</span>
             <span class="font-headline font-bold text-base text-primary">${protocolCode}</span>
           </div>
         </div>
 
         <!-- Resumo do Pedido -->
-        <div class="bg-surface-container-lowest rounded-xl p-4 shadow-sm gap-3 flex flex-col border border-surface-container">
-          <div class="flex items-center gap-2 border-b border-surface-container-high pb-2">
-            <span class="material-symbols-outlined text-primary text-[20px]">assignment</span>
+        <div class="bg-surface-container-lowest rounded-2xl p-5 shadow-sm gap-4 flex flex-col border border-surface-container">
+          <div class="flex items-center gap-2 border-b border-surface-container-high pb-3">
+            <span class="material-symbols-outlined text-primary text-[22px]">assignment</span>
             <h3 class="font-headline font-semibold text-base text-on-surface">Resumo do Pedido</h3>
           </div>
 
-          <div class="flex flex-col gap-2 font-body text-xs text-on-surface-variant">
+          <div class="flex flex-col gap-2 font-body text-xs sm:text-sm text-on-surface-variant">
             ${state.cart.map(it => `
               <div class="flex justify-between">
                 <span>${it.quantidade}x ${it.nome}</span>
@@ -1256,28 +1313,28 @@
             `).join('')}
           </div>
 
-          <div class="pt-2 flex justify-between font-headline text-sm font-bold text-on-surface border-t border-surface-container-high">
+          <div class="pt-2 flex justify-between font-headline text-base font-bold text-on-surface border-t border-surface-container-high">
             <span>Total Pago</span>
-            <span class="text-primary font-bold text-base">${formatBRL(grandTotal)}</span>
+            <span class="text-primary font-bold text-lg">${formatBRL(grandTotal)}</span>
           </div>
 
-          <div class="p-3 bg-surface-container-low rounded-lg flex flex-col gap-1">
-            <div class="flex items-center gap-1 text-secondary font-headline text-xs font-semibold">
-              <span class="material-symbols-outlined text-[16px]">location_on</span>
+          <div class="p-3.5 bg-surface-container-low rounded-xl flex flex-col gap-1">
+            <div class="flex items-center gap-1.5 text-secondary font-headline text-xs font-semibold">
+              <span class="material-symbols-outlined text-[18px]">location_on</span>
               <span>Entrega Confirmada</span>
             </div>
-            <p class="font-body text-xs text-on-surface pl-5">${orderData.address}</p>
-            <p class="font-headline text-[10px] text-on-surface-variant pl-5">GPS: ${coordsStr}</p>
+            <p class="font-body text-xs text-on-surface pl-6">${orderData.address}</p>
+            <p class="font-headline text-[10px] text-on-surface-variant pl-6">GPS: ${coordsStr}</p>
           </div>
         </div>
 
         <!-- Botão de Enviar no WhatsApp -->
-        <div class="flex flex-col gap-2 pt-1 pb-4">
-          <a href="${waLink}" target="_blank" rel="noopener noreferrer" class="w-full h-12 flex items-center justify-center gap-2 rounded-xl bg-primary text-on-primary font-headline text-sm font-semibold shadow-md active:scale-[0.98] transition-all text-center">
+        <div class="flex flex-col gap-2.5 pt-1 pb-4">
+          <a href="${waLink}" target="_blank" rel="noopener noreferrer" class="w-full h-12 flex items-center justify-center gap-2 rounded-xl bg-primary text-on-primary font-headline text-sm font-semibold shadow-md active:scale-[0.98] hover:bg-primary-container transition-all text-center">
             <span class="material-symbols-outlined text-[24px]">chat</span>
             <span>Enviar Pedido no WhatsApp</span>
           </a>
-          <button type="button" id="btn-back-to-shop" class="w-full h-11 flex items-center justify-center rounded-xl bg-surface-container-high text-primary font-headline text-xs font-semibold active:scale-[0.98] transition-all">
+          <button type="button" id="btn-back-to-shop" class="w-full h-11 flex items-center justify-center rounded-xl bg-surface-container-high text-primary font-headline text-xs font-semibold active:scale-[0.98] hover:bg-surface-container-highest transition-all">
             Voltar para o Cardápio
           </button>
         </div>
